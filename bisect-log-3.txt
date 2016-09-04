@@ -1,0 +1,41 @@
+# this run built llvm with ONLY_TOOLS=opt
+# and considered a failure to build llvm as bad
+# lots of C++ build failures with "has no member named ..."
+
+git bisect start
+# bad: [c1243bb806c7edb2969569f880e0922f9b010f00] Daily bump.
+git bisect bad c1243bb806c7edb2969569f880e0922f9b010f00
+# good: [d3191480f376c78031aa1ca0f6a54f4cf67f4268] Mark as release
+git bisect good d3191480f376c78031aa1ca0f6a54f4cf67f4268
+# good: [ec86f0be138e2f976eb8f249bbcc82246586e6a0] 	PR other/59055 	* doc/bugreport.texi (Bugs): Remove nodes pointing to the 	nirvana. 	* doc/gcc.texi (Service): Update description in the @menu 	* doc/invoke.texi (Option Summary): Remove misplaced and 	duplicated @menu.
+git bisect good ec86f0be138e2f976eb8f249bbcc82246586e6a0
+# bad: [0db094ac080f7fa61eda15f53020fa020e7e704a] Add test cases for all the new cilk errors
+git bisect bad 0db094ac080f7fa61eda15f53020fa020e7e704a
+# good: [7a1febef2e54b941910bf8952fedb6d0c92d800a] 2014-07-30  Robert Dewar  <dewar@adacore.com>
+git bisect good 7a1febef2e54b941910bf8952fedb6d0c92d800a
+# bad: [dda093af69b604a19751c936dcd014aac173d4ef] [AArch64] Add regmove_costs for Cortex-A57 and A53
+git bisect bad dda093af69b604a19751c936dcd014aac173d4ef
+# bad: [6ac3b11ec643c5f7665788dec95e0d42fc31c7c6] 	* configure: Regenerated.
+git bisect bad 6ac3b11ec643c5f7665788dec95e0d42fc31c7c6
+# good: [79b739b45e1a0166be0f9eea153758cd5c33a37c] gcc/ 	* config/elfos.h (ASM_DECLARE_OBJECT_NAME): Use decl size 	instead of type size. 	(ASM_FINISH_DECLARE_OBJECT): Likewise.
+git bisect good 79b739b45e1a0166be0f9eea153758cd5c33a37c
+# bad: [37b1367a73aafe7bfb223107d7772e6e9dd025f3] 2014-08-15  Richard Biener  <rguenther@suse.de>
+git bisect bad 37b1367a73aafe7bfb223107d7772e6e9dd025f3
+# good: [6e70b2d862e5bc8410f2ec1ca6820b1d80655c12] Fix PR target/62098
+git bisect good 6e70b2d862e5bc8410f2ec1ca6820b1d80655c12
+# good: [0dd26645a9f54544ab5987a07e4acc168eb501cc] 2014-08-14  Matthias Klose  <doko@ubuntu.com>
+git bisect good 0dd26645a9f54544ab5987a07e4acc168eb501cc
+# bad: [aedd2947e223fda8838a2d2d9e7a4dc9327d8855] 	DR 458 	* ginclude/stdatomic.h (__atomic_type_lock_free): Remove. 	(ATOMIC_*_LOCK_FREE): Map to __GCC_ATOMIC_*_LOCK_FREE.
+git bisect bad aedd2947e223fda8838a2d2d9e7a4dc9327d8855
+# bad: [c49ee0f56805449db557a7d265eddd60e73b87ab] [gcc/]
+git bisect bad c49ee0f56805449db557a7d265eddd60e73b87ab
+# good: [ad9e6ec41d16adb3760d913ae1c92c7e638df7e7] gcc/         * config/i386/i386.md 	(define_attr "isa"): Add avx512bw,noavx512bw. 	(define_attr "enabled"): Ditto. 	(define_split): Add 32/64-bit mask logic. 	(define_insn "*k<logic>qi"): New. 	(define_insn "*k<logic>hi"): New. 	(define_insn "*anddi_1"): Add mask version. 	(define_insn "*andsi_1"): Ditto. 	(define_insn "*<code><mode>_1"): Ditto. 	(define_insn "*<code>hi_1"): Ditto. 	(define_insn "kxnor<mode>"): New. 	(define_insn "kunpcksi"): New. 	(define_insn "kunpckdi"): New. 	(define_insn "*one_cmpl<mode>2_1"): Add mask version. 	(define_insn "*one_cmplhi2_1"): Ditto.
+git bisect good ad9e6ec41d16adb3760d913ae1c92c7e638df7e7
+# good: [18b7eecbf2024114c46ddd0eb4f805edeb7f32e3] gcc/         * config/i386/sse.md (define_mode_attr avx512): New. 	(define_mode_attr sse2_avx_avx512f): Allow V8HI, V16HI, V32HI, V2DI, 	V4DI modes. 	(define_mode_attr sse2_avx2): Allow V64QI, V32HI, V4TI modes. 	(define_mode_attr ssse3_avx2): Ditto. 	(define_mode_attr sse4_1_avx2): Allow V64QI, V32HI, V8DI modes. 	(define_mode_attr avx2_avx512bw): New. 	(define_mode_attr ssedoublemodelower): New. 	(define_mode_attr ssedoublemode): Allow V8SF, V8SI, V4DI, V4DF, V4SI, 	V32HI, V64QI modes. 	(define_mode_attr ssebytemode): Allow V8DI modes. 	(define_mode_attr sseinsnmode): Allow V4TI, V32HI, V64QI modes. 	(define_mode_attr sseintvecmodelower): Allow V8DF, V4TI modes. 	(define_mode_attr ssePSmode2): New. 	(define_mode_attr ssescalarsize): Allow V64QI, V32QI, V16QI, V8HI, 	V16HI, V32HI modes. 	(define_mode_attr dbpsadbwmode): New. 	(define_mode_attr bcstscalarsuff): Allow V64QI, V32QI, V16QI, V32HI, 	V16HI, V8HI, V8SI, V4SI, V4DI, V2DI, V8SF, V4SF, V4DF, V2DF modes. 	(vi8_sse4_1_avx2_avx512): New. 	(define_insn <sse4_1_avx2>_movntdqa): Use <vi8_sse4_1_avx2_avx512> 	mode attribute. 	(define_mode_attr blendbits): Move before its immediate use.
+git bisect good 18b7eecbf2024114c46ddd0eb4f805edeb7f32e3
+# bad: [21f0203c9247d32365d3b87142629712f109262a] 2014-08-14  Richard Biener  <rguenther@suse.de>
+git bisect bad 21f0203c9247d32365d3b87142629712f109262a
+# good: [222dac0eeefd74b08187f1131173956bebc312f5] 2014-08-14  Richard Biener  <rguenther@suse.de>
+git bisect good 222dac0eeefd74b08187f1131173956bebc312f5
+# first bad commit: [21f0203c9247d32365d3b87142629712f109262a] 2014-08-14  Richard Biener  <rguenther@suse.de>
+

@@ -1,0 +1,524 @@
+git bisect start
+# skip: [7a7ef3421340a917d4b7c5c435e4cfacf651715c] 2014-09-19  Joost VandeVondele  <vondele@gcc.gnu.org>
+git bisect skip 7a7ef3421340a917d4b7c5c435e4cfacf651715c
+# good: [b1682756e523d298b8e0522aa79c3bacbe70753f] Daily bump.
+git bisect good b1682756e523d298b8e0522aa79c3bacbe70753f
+# bad: [05490bf05c5d00e5e6eba9e1e90761ab4214a4e4] 	PR c++/65498 	* pt.c (get_mostly_instantiated_function_type): Just return the 	type of the partially instantiated template in DECL_TI_TEMPLATE.
+git bisect bad 05490bf05c5d00e5e6eba9e1e90761ab4214a4e4
+# skip: [fefa0b1391962f8b489f1effd4255dcdfe45206d] [AARCH64] Add scheduler for ThunderX
+git bisect skip fefa0b1391962f8b489f1effd4255dcdfe45206d
+# skip: [c518137034b5e524c8ea23edb9ef3525926791ae] 2014-11-28  Vladimir Makarov  <vmakarov@redhat.com>
+git bisect skip c518137034b5e524c8ea23edb9ef3525926791ae
+# skip: [0aac18e36fe34fc105bd427dbb0c773aa57c4ce0] gcc/ 	* config/i386/sse.md 	(define_mode_iterator VI4F_BRCST32x2): New. 	(define_mode_attr 64x2_mode): Ditto. 	(define_mode_attr 32x2mode): Ditto. 	(define_insn "<mask_codefor>avx512dq_broadcast<mode><mask_name>" 	with VI4F_BRCST32x2): Ditto. 	(define_insn "<mask_codefor>avx512vl_broadcast<mode><mask_name>_1" 	with V16FI mode iterator): Ditto. 	(define_insn "<mask_codefor>avx512dq_broadcast<mode><mask_name>_1" 	with V16FI): Ditto. 	(define_insn "<mask_codefor>avx512dq_broadcast<mode><mask_name>_1" 	with VI8F_BRCST64x2): Ditto.
+git bisect skip 0aac18e36fe34fc105bd427dbb0c773aa57c4ce0
+# skip: [80c3d8cfbee4261191eb22419c2145ff70aa49b7] 2014-10-30  Richard Biener  <rguenther@suse.de>
+git bisect skip 80c3d8cfbee4261191eb22419c2145ff70aa49b7
+# skip: [ae395326f42c25bf400967d9933331503f321218] 	PR other/63504 	* dwarf2out.c (add_AT_wide, mem_loc_descriptor, loc_descriptor): 	Use ggc_alloc<wide_int> instead of ggc_cleared_alloc<wide_int>. 	(attr_checksum, attr_checksum_ordered, hash_loc_operands): Checksum 	only get_full_len HOST_WIDE_INTs from get_val () array rather than 	all bits in *val_wide.
+git bisect skip ae395326f42c25bf400967d9933331503f321218
+# skip: [f083e31541057d14d5ee6538f1c0ed32eff941b3] 2014-10-31  Andrew Pinski  <apinski@cavium.com>
+git bisect skip f083e31541057d14d5ee6538f1c0ed32eff941b3
+# skip: [8dc7da958de5c1302bf95c9442cc2fc81555ad4f] Add JUMP_LABEL_AS_INSN
+git bisect skip 8dc7da958de5c1302bf95c9442cc2fc81555ad4f
+# skip: [8a12b66595afef33449e116c0de194886306c5d6] Add avx512ifma instructions.
+git bisect skip 8a12b66595afef33449e116c0de194886306c5d6
+# skip: [da1dece9d16bdc42a9aaefee930120d39abf027f] [ARM/AArch64][testsuite] Add vsubl tests, put most of the code in common with vaddl in vXXXl.inc.
+git bisect skip da1dece9d16bdc42a9aaefee930120d39abf027f
+# skip: [e20c756c7a9b6ecbfc8ce0be8df0773e796370c0] 2014-11-07  Hristian Kirtchev  <kirtchev@adacore.com>
+git bisect skip e20c756c7a9b6ecbfc8ce0be8df0773e796370c0
+# skip: [d626297e87e19251a284ea1e9360e831b48999ca] Add target hook to override DWARF2 frame register size
+git bisect skip d626297e87e19251a284ea1e9360e831b48999ca
+# skip: [2becec307bec1386c408690397d253b438cf0aec] ptx testsuite fixes for issues like indirect jumps and jump labels.
+git bisect skip 2becec307bec1386c408690397d253b438cf0aec
+# skip: [77b6aee68b392c23d99e3cc7af0ea6c4f2d95b3d] 	* doc/invoke.texi (Optimization Options): Add missing @gol to the 	end of a line. 	(S/390 and zSeries Options): Remove superfluous word from the 	description of the -mhotpatch option.
+git bisect skip 77b6aee68b392c23d99e3cc7af0ea6c4f2d95b3d
+# skip: [dddeeb5e2b9ad8c024ebca253ca16e0636b1a22f] 	PR tree-optimization/63915 	* tree-vect-stmts.c (vectorizable_simd_clone_call): Pass 	true instead of false as last argument to gsi_replace.
+git bisect skip dddeeb5e2b9ad8c024ebca253ca16e0636b1a22f
+# skip: [311f821c02cee97bb02d4b7011e83fd8bc8881b2] params 2 and 3 of reg_set_between_p
+git bisect skip 311f821c02cee97bb02d4b7011e83fd8bc8881b2
+# skip: [7a0c641a785a408e454de8b2513a38be6761aeba] 	* lib/gcc-dg.exp (${tool}_load): Call prune_file_path instead 	of prune_gcc_output. 	* lib/prune.exp (prune_file_path): New procedure.
+git bisect skip 7a0c641a785a408e454de8b2513a38be6761aeba
+# skip: [460ec7e66693f66038e4ad12f482f69a3205ef06] 2014-09-19  Segher Boessenkool  <segher@kernel.crashing.org>
+git bisect skip 460ec7e66693f66038e4ad12f482f69a3205ef06
+# skip: [0c321de1155dc536389721b97396f528b7cbaa79] 	* cgraphunit.c (analyze_functions): Use opt_for_fn. 	* cgraph.h (cgraph_node::optimize_for_size_p): Likewise.
+git bisect skip 0c321de1155dc536389721b97396f528b7cbaa79
+# skip: [e48d7755e73ef9662306aa7e45e7f4d22361d156] Fix compile time warning caused by PIC_OFFSET_TABLE_REGNUM be INVALID_REGNUM
+git bisect skip e48d7755e73ef9662306aa7e45e7f4d22361d156
+# skip: [f508b316257611f6f8cf72ec43c4903e0c909756] Daily bump.
+git bisect skip f508b316257611f6f8cf72ec43c4903e0c909756
+# skip: [c24eea6a5636d8dc913d8c2045b831d2ee446dd4] Should not sink instructions which may cause trap
+git bisect skip c24eea6a5636d8dc913d8c2045b831d2ee446dd4
+# skip: [1e937a2e7a008f40c13678f3326bb617fa39b194] [Vectorizer] Tidy up vect_create_epilog / use_scalar_result
+git bisect skip 1e937a2e7a008f40c13678f3326bb617fa39b194
+# skip: [6a7f0ed0e8e4adaa3f074312bca0b0faff8e9c64] Daily bump.
+git bisect skip 6a7f0ed0e8e4adaa3f074312bca0b0faff8e9c64
+# bad: [c0ec2fc2c0f0de7423ea09f55e08aec9be81305f] 	* fr.po: Update.
+git bisect bad c0ec2fc2c0f0de7423ea09f55e08aec9be81305f
+# skip: [997142ae117af1c8b2116498049b255d7a73670d] 2014-11-14  Joel Sherrill <joel.sherrill@oarcorp.com>
+git bisect skip 997142ae117af1c8b2116498049b255d7a73670d
+# skip: [f9fd4edc5bbeff5cc80c870b2b4d1c1339b2d46f] 2014-11-17  Zhenqiang Chen  <zhenqiang.chen@linaor.org>
+git bisect skip f9fd4edc5bbeff5cc80c870b2b4d1c1339b2d46f
+# skip: [21a59482a27e0ab780bf99c4dbfed7d5004d21f5] AVX-512. Update vec_set<mode>_0 pattern.
+git bisect skip 21a59482a27e0ab780bf99c4dbfed7d5004d21f5
+# skip: [012ad66c69df497ca32eda18561aa64c101c769a] 	* timevar.def (TV_SCHED_FUSION): New time var. 	* passes.def (pass_sched_fusion): New pass. 	* config/arm/arm.c (TARGET_SCHED_FUSION_PRIORITY): New. 	(extract_base_offset_in_addr, fusion_load_store): New. 	(arm_sched_fusion_priority): New. 	(arm_option_override): Disable scheduling fusion by default 	on non-armv7 processors or ldrd/strd isn't preferred. 	* sched-int.h (struct _haifa_insn_data): New field. 	(INSN_FUSION_PRIORITY, FUSION_MAX_PRIORITY, sched_fusion): New. 	* sched-rgn.c (rest_of_handle_sched_fusion): New. 	(pass_data_sched_fusion, pass_sched_fusion): New. 	(make_pass_sched_fusion): New. 	* haifa-sched.c (sched_fusion): New. 	(insn_cost): Handle sched_fusion. 	(priority): Handle sched_fusion by calling target hook. 	(enum rfs_decision): New enum value. 	(rfs_str): New element for RFS_FUSION. 	(rank_for_schedule): Support sched_fusion. 	(schedule_insn, max_issue, prune_ready_list): Handle sched_fusion. 	(schedule_block, fix_tick_ready): Handle sched_fusion. 	* common.opt (flag_schedule_fusion): New. 	* tree-pass.h (make_pass_sched_fusion): New. 	* target.def (fusion_priority): New. 	* doc/tm.texi.in (TARGET_SCHED_FUSION_PRIORITY): New. 	* doc/tm.texi: Regenerated. 	* doc/invoke.texi (-fschedule-fusion): New.
+git bisect skip 012ad66c69df497ca32eda18561aa64c101c769a
+# skip: [70c5e7be6158a1fd16cc8d7cda1cbda9797e5402] 	* gcc.dg/vect/slp-9.c: Disable einline.
+git bisect skip 70c5e7be6158a1fd16cc8d7cda1cbda9797e5402
+# skip: [f3d688fbc4887b4e99d27a35d077d731f51303e7] 	* libgomp.c/examples-4/e.54.2.c (main): Use N / 8 instead 	of 32 as block_size. 	* libgomp.fortran/examples-4/e.54.2.f90 (e_54_1): Use n / 8 	instead of 32 as block_size.
+git bisect skip f3d688fbc4887b4e99d27a35d077d731f51303e7
+# skip: [058e5c2dcf572cf3237f84d95c44a16d9507d887] Commit forgotten hunk.
+git bisect skip 058e5c2dcf572cf3237f84d95c44a16d9507d887
+# good: [9e057653be7d42f164303b9f95e88138c7345784] 	* lto-streamer-out.c (struct sccs): Turn to ... 	(class DFS): ... this one; refactor the DFS walk so it can 	be re-done on per-SCC basis. 	(DFS::DFS): New constructor. 	(DFS::~DFS): New destructor. 	(hash_tree): Add new MAP argument holding in-SCC hash values; 	remove POINTER_TYPE hashing hack. 	(scc_entry_compare): Rename to ... 	(DFS::scc_entry_compare): ... this one. 	(hash_scc): Rename to ... 	(DFS::hash_scc): ... this one; pass output_block instead 	of streamer_cache; work harder to get unique and stable SCC 	hashes. 	(DFS_write_tree): Rename to ... 	(DFS::DFS_write_tree): ... this one; add SINGLE_P parameter. 	(lto_output_tree): Update.
+git bisect good 9e057653be7d42f164303b9f95e88138c7345784
+# skip: [7b8d51c324e75851c724669bfd3f58c513b29a89] 	* config/sh/sh.c: Do not include algorithm. 	(sh_emit_scc_to_t): Replace open-coded swap with std::swap 	to swap values. 	(sh_emit_compare_and_branch): Ditto. 	(sh_emit_compare_and_set): Ditto. 	* config/sh/sh.md (replacement peephole2): Ditto. 	(cstore4_media): Ditto. 	(*fmasf4): Ditto.
+git bisect skip 7b8d51c324e75851c724669bfd3f58c513b29a89
+# skip: [c670165ec7f1b0529c72ab63b59d0cad1c9fe3ae] 	PR ipa/63566 	* ipa-split.c (execute_split_functions): Split if function has aliases.
+git bisect skip c670165ec7f1b0529c72ab63b59d0cad1c9fe3ae
+# skip: [c0a7a7dfb352d6c9afead496c1313ce6868895da] 2014-12-01  Richard Biener  <rguenther@suse.de>
+git bisect skip c0a7a7dfb352d6c9afead496c1313ce6868895da
+# skip: [8c35fb1b3da63f3962cf18609b51185c3cf4836b] regstat.c: Use rtx_insn
+git bisect skip 8c35fb1b3da63f3962cf18609b51185c3cf4836b
+# skip: [ef8cb3d34fedf409d45f8721eea8b512372b435f] 2014-11-27  Richard Biener  <rguenther@suse.de>
+git bisect skip ef8cb3d34fedf409d45f8721eea8b512372b435f
+# skip: [ac8c312d8d4c1abbcbd78efe5c88585a24e4c865] 	PR c/61271 	* expr.c (is_aligning_offset): Remove logical not.
+git bisect skip ac8c312d8d4c1abbcbd78efe5c88585a24e4c865
+# skip: [1feb1b2d5438eede71c02ce6d618f66d16a9582b] 	PR preprocessor/60436 	* line-map.c (linemap_line_start): If highest is above 0x60000000 	and we are still tracking columns or highest is above 0x70000000, 	force add_map.
+git bisect skip 1feb1b2d5438eede71c02ce6d618f66d16a9582b
+# skip: [db1b48f5e064d716af4c4ab09f7c2211111fb3ef] gcc/ 	* reg-stack.c: Include rtl-iter.h. 	(subst_stack_regs_in_debug_insn): Delete. 	(subst_all_stack_regs_in_debug_insn): Use FOR_EACH_SUBRTX_PTR 	instead of for_each_rtx.
+git bisect skip db1b48f5e064d716af4c4ab09f7c2211111fb3ef
+# skip: [80e5f40c59155510dbdd1af23b65b5b45206b0b9] Fix all MIPS test failures caused by implicit declaration/int warnings.
+git bisect skip 80e5f40c59155510dbdd1af23b65b5b45206b0b9
+# skip: [ed90be8b635e6c9b54260fc61e1835b662b8d742] 2014-09-01  Richard Biener  <rguenther@suse.de>
+git bisect skip ed90be8b635e6c9b54260fc61e1835b662b8d742
+# skip: [868d8521752ace1e3ef69fbb5dbde1eb4626bd17] gcc/ 	* config/aarch64/aarch64.c: Include rtl-iter.h. 	(aarch64_tls_operand_p_1): Delete. 	(aarch64_tls_operand_p): Use FOR_EACH_SUBRTX.
+git bisect skip 868d8521752ace1e3ef69fbb5dbde1eb4626bd17
+# skip: [490f62caaecc38eb4732ad07e57991f85a105ded] 	* config/arm/arm.md (arm_movqi_insn): Use Uh instead of m constraint.
+git bisect skip 490f62caaecc38eb4732ad07e57991f85a105ded
+# skip: [dc353d9b65c0f7aebd142fbb89460335e285af6d] 2014-11-20  Ed Schonberg  <schonberg@adacore.com>
+git bisect skip dc353d9b65c0f7aebd142fbb89460335e285af6d
+# skip: [5a9ccd1b9448c106042790af9d0de08693a554b0] gcc/ChangeLog:
+git bisect skip 5a9ccd1b9448c106042790af9d0de08693a554b0
+# skip: [bfb81ef08b0bc50fc416546f1b7178e6537c5041] PR jit/63854: Fix memory leak of save_decoded_options
+git bisect skip bfb81ef08b0bc50fc416546f1b7178e6537c5041
+# skip: [1ed5a0485a591c75ee031cbe16bdfb330c595fd8] [AArch64] Error out of arm_neon.h if nofp/nosimd
+git bisect skip 1ed5a0485a591c75ee031cbe16bdfb330c595fd8
+# skip: [1fa1be9b502e7921f99be2d737b7c0f21cc0bc24] Daily bump.
+git bisect skip 1fa1be9b502e7921f99be2d737b7c0f21cc0bc24
+# skip: [18d9a6142b44d7a83ee7684d07a9b722cdc7bbbc] gcc/ 	* hard-reg-set.h: Include hash-table.h. 	(target_hard_regs): Add a finalize method and a x_simplifiable_subregs 	field. 	* target-globals.c (target_globals::~target_globals): Call 	hard_regs->finalize. 	* rtl.h (subreg_shape): New structure. 	(shape_of_subreg): New function. 	(simplifiable_subregs): Declare. 	* reginfo.c (simplifiable_subreg): New structure. 	(simplifiable_subregs_hasher): Likewise. 	(simplifiable_subregs): New function. 	(invalid_mode_changes): Delete. 	(alid_mode_changes, valid_mode_changes_obstack): New variables. 	(record_subregs_of_mode): Remove subregs_of_mode parameter. 	Record valid mode changes in valid_mode_changes. 	(find_subregs_of_mode): Remove subregs_of_mode parameter. 	Update calls to record_subregs_of_mode. 	(init_subregs_of_mode): Remove invalid_mode_changes and bitmap 	handling.  Initialize new variables.  Update call to 	find_subregs_of_mode. 	(invalid_mode_change_p): Check new variables instead of 	invalid_mode_changes. 	(finish_subregs_of_mode): Finalize new variables instead of 	invalid_mode_changes. 	(target_hard_regs::finalize): New function. 	* ira-costs.c (print_allocno_costs): Call invalid_mode_change_p 	even when CLASS_CANNOT_CHANGE_MODE is undefined.
+git bisect skip 18d9a6142b44d7a83ee7684d07a9b722cdc7bbbc
+# skip: [0328398d933acf544888379949eb5c061dfcfe02] libsanitizer merge from upstream r221802
+git bisect skip 0328398d933acf544888379949eb5c061dfcfe02
+# skip: [18e2d12ffad8f54e9dfb7e50a2807ba1e0079e2d] 	PR sanitizer/64336 	* tree.c (build2_stat): Fix up initialization of TREE_READONLY 	and TREE_THIS_VOLATILE for MEM_REFs. 	(build5_stat): Fix up initialization of TREE_READONLY and 	TREE_THIS_VOLATILE for TARGET_MEM_REFs.
+git bisect skip 18e2d12ffad8f54e9dfb7e50a2807ba1e0079e2d
+# skip: [00f2171561b1524f9b683b3361545469ea6c94aa] 	Handle C++14 constexpr flow control. 	* constexpr.c (cxx_eval_loop_expr, cxx_eval_switch_expr): New. 	(cxx_eval_statement_list): New. 	(cxx_eval_constant_expression): Handle LABEL_EXPR, 	CASE_LABEL_EXPR, GOTO_EXPR, LOOP_EXPR, SWITCH_EXPR.  Handle jump 	semantics of RETURN_EXPR. 	(many functions): Add jump_target parameter. 	(returns, breaks, continues, switches, label_matches): New. 	* cp-tree.h (LABEL_DECL_BREAK, LABEL_DECL_CONTINUE): New. 	* cp-gimplify.c (begin_bc_block): Set them.
+git bisect skip 00f2171561b1524f9b683b3361545469ea6c94aa
+# skip: [84c3b07e868d3088202ceb5f2a72e5843641d73f] 	* config-list.mk (LIST): Add visium-elf.
+git bisect skip 84c3b07e868d3088202ceb5f2a72e5843641d73f
+# skip: [9d9f24299482fdee98dfc0edaeabefbca2fa6368] 	PR target/60104 	* gcc.target/i386/sibcall-1.c: Don't run on pic targets.
+git bisect skip 9d9f24299482fdee98dfc0edaeabefbca2fa6368
+# skip: [cc7db007abde2792b4585175041131e4ca8a5cff] 2014-12-29  Janus Weil  <janus@gcc.gnu.org>
+git bisect skip cc7db007abde2792b4585175041131e4ca8a5cff
+# bad: [19402f571a690a9981c90011a7c01f966bb13dd3] 	* doc/contrib.texi (Contributors): Update entry for Danny Smith.
+git bisect bad 19402f571a690a9981c90011a7c01f966bb13dd3
+# skip: [6050d05283faf223f02814c1a56008e5886df68e] 	* g++.dg/guality/guality.exp (check_guality): Fix `test_counts' 	restoration.
+git bisect skip 6050d05283faf223f02814c1a56008e5886df68e
+# skip: [e351f8ce32f05eb80c31475e3edf4b0f6e429885] 	* toplev.c (init_local_tick): Process the failure when read 	fails for random_seed.
+git bisect skip e351f8ce32f05eb80c31475e3edf4b0f6e429885
+# skip: [5123b05c43ef25091b4484364cdca80d1e3bee27] Revert: Workaround following [PATCH] Pul all constants last in tree_swap_operands_p
+git bisect skip 5123b05c43ef25091b4484364cdca80d1e3bee27
+# skip: [25032ab834678429cbed51c8974e98acb929649e] Daily bump.
+git bisect skip 25032ab834678429cbed51c8974e98acb929649e
+# skip: [d1023d12a7112748fbae8a1bf86c286cec7cb5cf]  convert many if_marked htab to hash_table
+git bisect skip d1023d12a7112748fbae8a1bf86c286cec7cb5cf
+# skip: [2f087f785d35c1855cea9254b4625483ed57bfe4] Daily bump.
+git bisect skip 2f087f785d35c1855cea9254b4625483ed57bfe4
+# skip: [2055d27ae6174a05c25ea123052ebc84af6013c8] 	PR c++/57979 	* init.c (decl_really_constant_value): Rename from 	integral_constant_value. 	(scalar_constant_value): Similar but limited to scalar results. 	(decl_constant_value_safe): Remove. 	(constant_value_1): Respect return_aggregate_cst_ok_p. 	* typeck.c (decay_conversion): Use scalar_constant_value. 	* call.c (convert_like_real): Likewise. 	* cvt.c (ocp_convert): No need to check CLASS_TYPE_P. 	* typeck.c (decay_conversion): Or ARRAY_TYPE. 	* constexpr.c (struct constexpr_ctx): Add strict field. 	(cxx_eval_constant_expression) [VAR_DECL]: Use it to select between 	decl_constant_value and decl_really_constant_value. 	(cxx_eval_outermost_constant_expr): Add strict parm. 	(maybe_constant_init): Not strict. 	(potential_constant_expression_1): Add strict parm. 	Shorten most internal calls with RECUR macro. 	* cp-tree.h, pt.c, semantics.c: Adjust.
+git bisect skip 2055d27ae6174a05c25ea123052ebc84af6013c8
+# skip: [e3b7afcb34c7c4d4cd2f876e83fc2c90c2eeaae6] 2014-09-11  Segher Boessenkool  <segher@kernel.crashing.org>
+git bisect skip e3b7afcb34c7c4d4cd2f876e83fc2c90c2eeaae6
+# skip: [c229fef3efd3d9bc4bab86d5460251f39ca6b19e] 2014-11-12  Richard Biener  <rguenther@suse.de>
+git bisect skip c229fef3efd3d9bc4bab86d5460251f39ca6b19e
+# skip: [85b515c9d34d8478fe6526f794767eb9fc7e998b] 	* config/rl78/rl78.c (rl78_expand_epilogue): Generate a USE of the 	pop'ed registers so that DCE does not eliminate them.
+git bisect skip 85b515c9d34d8478fe6526f794767eb9fc7e998b
+# skip: [b893667c0aa51317cfc25c965bf248ec84bc0107] 	* pt.c (instantiate_template_1): Use tsubst_aggr_type for context.
+git bisect skip b893667c0aa51317cfc25c965bf248ec84bc0107
+# skip: [ee780bf548d61207d48901d2fc8f95803f555107] AVX-512. Add rest of vunpck[lh]ps.
+git bisect skip ee780bf548d61207d48901d2fc8f95803f555107
+# skip: [b63d710316b0bb132c2ab8fd69ba535df5d59bb2] Export "detect_leaks=0"
+git bisect skip b63d710316b0bb132c2ab8fd69ba535df5d59bb2
+# skip: [7e0d01bfbc5f5610cd3448e71cb4c595c3aff091] 2015-01-06  Thomas Quinot  <quinot@adacore.com>
+git bisect skip 7e0d01bfbc5f5610cd3448e71cb4c595c3aff091
+# skip: [aa4338240fdb49ae7156cbe19b068dbf09391014] gcc/ 2014-11-17  Terry Guo  <terry.guo@arm.com>
+git bisect skip aa4338240fdb49ae7156cbe19b068dbf09391014
+# skip: [c500eb01b146e0778253c9342b31cf2fb116dcdd] 	* cgraph.h (ipa_polymorphic_call_context): 	Turn bools into bitfields; add DYNAMIC; make MAKE_SPECULATIVE 	private, add POSSIBLE_DYNAMIC_TYPE_CHANGE. 	* ipa-polymorphic-call.c 	(ipa_polymorphic_call_context::restrict_to_inner_class): Allow accesses 	past end of dynamic types. 	(ipa_polymorphic_call_context::stream_out, 	speculative_outer_type): Stream dynamic flag. 	(ipa_polymorphic_call_context::set_by_decl): Clear DYNAMIC. 	(ipa_polymorphic_call_context::ipa_polymorphic_call_context): 	Clear DYNAMIC. 	(ipa_polymorphic_call_context::get_dynamic_type): Use DYNAMIC; 	set it. 	(ipa_polymorphic_call_context::combine_with): Propagate dynamic. 	* ipa-prop.c (update_jump_functions_after_inlining, 	try_make_edge_direct_virtual_call): Use possible_dynamic_type_change.
+git bisect skip c500eb01b146e0778253c9342b31cf2fb116dcdd
+# skip: [d7d0c4df73fabe2983ac65d90e77e3c80ee41076] 2014-11-15  Vladimir Makarov  <vmakarov@redhat.com>
+git bisect skip d7d0c4df73fabe2983ac65d90e77e3c80ee41076
+# skip: [a5d83f7dfcdca9b77d234661d447ad5874597f81] New symbol_summary class introduced.
+git bisect skip a5d83f7dfcdca9b77d234661d447ad5874597f81
+# bad: [31f6f05c6222767f7a8aa427141b887541b7064a] Daily bump.
+git bisect bad 31f6f05c6222767f7a8aa427141b887541b7064a
+# skip: [0fd940518db70893a0a2082c5c2a25bbd908e60c] 	* optc-save-gen.awk: Output cl_target_option_eq, 	cl_target_option_hash, cl_target_option_stream_out, 	cl_target_option_stream_in functions. 	* opth-gen.awk: Output prototypes for 	cl_target_option_eq and cl_target_option_hash. 	* lto-streamer.h (cl_target_option_stream_out, 	cl_target_option_stream_in): Declare. 	* tree.c (cl_option_hash_hash): Use cl_target_option_hash. 	(cl_option_hash_eq): Use cl_target_option_eq. 	* tree-streamer-in.c (unpack_value_fields): Stream in 	TREE_TARGET_OPTION. 	* lto-streamer-out.c (DFS::DFS_write_tree_body): Follow 	DECL_FUNCTION_SPECIFIC_TARGET. 	(hash_tree): Hash TREE_TARGET_OPTION; visit 	DECL_FUNCTION_SPECIFIC_TARGET. 	* tree-streamer-out.c (streamer_pack_tree_bitfields): Skip 	TS_TARGET_OPTION. 	(streamer_write_tree_body): Output TS_TARGET_OPTION.
+git bisect skip 0fd940518db70893a0a2082c5c2a25bbd908e60c
+# bad: [d533f15d638fae06c7a2948786569ff50855a183] Daily bump.
+git bisect bad d533f15d638fae06c7a2948786569ff50855a183
+# skip: [a527032f2a3bdc908e6916df42553d56a7cfa6ff] 	* optabs.c (prepare_operand): Gracefully fail if the mode of X 	does not match the operand mode expected by the insn pattern.
+git bisect skip a527032f2a3bdc908e6916df42553d56a7cfa6ff
+# skip: [30d8934cf0eb420324a377005e972bffaf1e4f38] 2014-11-12  Richard Biener  <rguenther@suse.de>
+git bisect skip 30d8934cf0eb420324a377005e972bffaf1e4f38
+# skip: [27f6a8a0012f8df67c88b9d28ab47c3492319a07] 2015-01-02  Sandra Loosemore  <sandra@codesourcery.com>
+git bisect skip 27f6a8a0012f8df67c88b9d28ab47c3492319a07
+# skip: [ac20acbd42b3707dfe0e45863a4374f5db882271] 2014-11-13  Vladimir Makarov  <vmakarov@redhat.com>
+git bisect skip ac20acbd42b3707dfe0e45863a4374f5db882271
+# skip: [717e52f9e962ba5d7e3759552c3b4dbbc12c4571] c-family/ 	* c-common.h (enum rid): Add RID_IS_TRIVIALLY_COPYABLE. 	* c-common.c (c_common_reswords): Add __is_trivially_copyable. cp/ 	* cp-tree.h (cp_trait_kind): Add CPTK_IS_TRIVIALLY_COPYABLE. 	* cxx-pretty-print.c (pp_cxx_trait_expression): Likewise. 	* parser.c (cp_parser_primary_expression): Likewise. 	(cp_parser_trait_expr): Likewise. 	* semantics.c (trait_expr_value): Likewise. 	(finish_trait_expr): Likewise.
+git bisect skip 717e52f9e962ba5d7e3759552c3b4dbbc12c4571
+# skip: [85f72a88010a2885f602ca074c084e55759943ed] 	* intrinsics/access.c: Include <stdlib.h>. 	* intrinsics/chdir.c: Likewise. 	* intrinsics/chmod.c: Likewise. 	* intrinsics/link.c: Likewise. 	* intrinsics/perror.c: Likewise. 	* intrinsics/rename.c: Likewise. 	* intrinsics/symlnk.c: Likewise. 	* intrinsics/unlink.c: Likewise.
+git bisect skip 85f72a88010a2885f602ca074c084e55759943ed
+# skip: [e522a60472ab6e2c12be7944eac3f6d62d4f64bb] gcc/ChangeLog:
+git bisect skip e522a60472ab6e2c12be7944eac3f6d62d4f64bb
+# bad: [afddacc6cb1b2d3f0bb72233321ee3d47385b208] [NDS32] Rename some variables so that we can clearly identify they represent general purpose registers.
+git bisect bad afddacc6cb1b2d3f0bb72233321ee3d47385b208
+# skip: [49ce3f71e784915a64a92e38a163765c45813a50] Rename struct in gcc/lra-lives.c
+git bisect skip 49ce3f71e784915a64a92e38a163765c45813a50
+# skip: [2f4777f3a5642980e54dbae3c6a0b62df9f2163a] [Obvious][Testsuite] Remove extraneous target from gcc.target/arm/macro_defs0.c
+git bisect skip 2f4777f3a5642980e54dbae3c6a0b62df9f2163a
+# skip: [94bed7c33d801ea3b1fb6b10ff395af74a98244e] Add AutoFDO.
+git bisect skip 94bed7c33d801ea3b1fb6b10ff395af74a98244e
+# skip: [6e0bd2d9a8272b9f4dd2952bb94dcfd4a04a8812] Minor corrections to gcc.dg/combine_ashiftrt_[12].c
+git bisect skip 6e0bd2d9a8272b9f4dd2952bb94dcfd4a04a8812
+# skip: [da584ec301a67f7f06fb0c085e561756dc752144] 	PR lto/64025 	* alias.c (find_base_term): Use std::swap.  Prefer tmp2 	if it is CONSTANT_P other than CONST_INT.
+git bisect skip da584ec301a67f7f06fb0c085e561756dc752144
+# skip: [289c4db44c825097aa608138252f2e058ad98b6b] 	* cgraphunit.c (ipa_passes, compile): Reshedule 	symtab_remove_unreachable_nodes passes; update comments. 	* ipa-inline.c (pass_data_ipa_inline): Do not schedule 	TODO_remove_functions before the pass; the functions ought to be 	already removed. 	* ipa.c (pass_data_ipa_free_inline_summary): Enable dump; schedule 	TODO_remove_functions. 	* passes.c (pass_data_early_local_passes): Do not schedule function 	removal. 	(execute_one_pass): Fix call of symtab_remove_unreachable_nodes.
+git bisect skip 289c4db44c825097aa608138252f2e058ad98b6b
+# skip: [6358ab2451eb87e8715d846c07badf4c67b85cfc] 	* config/rs6000/rs6000.c (rs6000_call_aix): For the AIX ABI, do not 	load the static chain if the call was originally direct.
+git bisect skip 6358ab2451eb87e8715d846c07badf4c67b85cfc
+# skip: [b249d45875087c8b0fe5370a58f9ec044c2a41bf] fortran/ 	PR fortran/62135 	* resolve.c (resolve_select): Fix list traversal in case the 	last element of the CASE list was dropped as unreachable code.
+git bisect skip b249d45875087c8b0fe5370a58f9ec044c2a41bf
+# skip: [8c06599b7b7881c693a739d8dad4433e195c7b25] 	* gcc-interface/trans.c (Call_to_gnu): Strip unchecked conversions on 	actuals of In parameters if the destination type is an unconstrained 	composite type.
+git bisect skip 8c06599b7b7881c693a739d8dad4433e195c7b25
+# skip: [2007d20f2f233f642e76d60039a96651dff52294] final_start_function takes an rtx_insn
+git bisect skip 2007d20f2f233f642e76d60039a96651dff52294
+# skip: [47edca9a0fcc4f12099a9585a48dcfbd6f314f28] Add zero-cost loops for xtensa port.
+git bisect skip 47edca9a0fcc4f12099a9585a48dcfbd6f314f28
+# skip: [0bca4a5b994a701051f6b60b9f95e2d34bf7bd94] gcc/ 	* dwarf2out.c: Include rtl-iter.h. 	(const_ok_for_output_1): Take the rtx instead of a pointer to it. 	Remove unused data parameter.  Return a bool, inverting the result 	so that 0/false means "not ok". 	(const_ok_for_output): Update accordingly.  Use FOR_EACH_SUBRTX_VAR 	instead of for_each_rtx.
+git bisect skip 0bca4a5b994a701051f6b60b9f95e2d34bf7bd94
+# skip: [bb16a9f99d9aac8c77415b958c9fbaa56a09e591] 2014-11-20  Javier Miranda  <miranda@adacore.com>
+git bisect skip bb16a9f99d9aac8c77415b958c9fbaa56a09e591
+# skip: [c26216bca2cb51347a6a80c3e74576ad21a47c0f] 	* jit-builtins.h (DEF_FUNCTION_TYPE_VAR_5): Fix spelling of 	last argument. 	(DEF_FUNCTION_TYPE_VAR_8, DEF_FUNCTION_TYPE_VAR_12): Define and 	undef afterwards. 	* jit-builtins.c (DEF_FUNCTION_TYPE_VAR_8, DEF_FUNCTION_TYPE_VAR_12): 	Likewise. @@ -334,6 +343,8 @@ builtins_manager::make_type (enum jit_bu  #undef DEF_FUNCTION_TYPE_VAR_3  #undef DEF_FUNCTION_TYPE_VAR_4  #undef DEF_FUNCTION_TYPE_VAR_5 +#undef DEF_FUNCTION_TYPE_VAR_8 +#undef DEF_FUNCTION_TYPE_VAR_12  #undef DEF_POINTER_TYPE
+git bisect skip c26216bca2cb51347a6a80c3e74576ad21a47c0f
+# skip: [0dc7b993d5752bce6fb8ee7e42cef4c4f8bae63e] Daily bump.
+git bisect skip 0dc7b993d5752bce6fb8ee7e42cef4c4f8bae63e
+# skip: [507f17864274e208cab0e239aad29de4ee2f5ede] Make output_die() output the parent DIE for each DIE.
+git bisect skip 507f17864274e208cab0e239aad29de4ee2f5ede
+# skip: [6d6c8ababefd8d5b54118f9c91183899a1b3222d] 	* tree-cfgcleanup.c (fixup_noreturn_call): Do not perform DCE here.
+git bisect skip 6d6c8ababefd8d5b54118f9c91183899a1b3222d
+# skip: [bd23734550a2518b66f54a3bd69db6c982b6a590] [3/7] Convert FP mnemonics to UAL | mul+add patterns
+git bisect skip bd23734550a2518b66f54a3bd69db6c982b6a590
+# skip: [b01787da4e0124fb933f33078e64a9eddf66e0ae] Correct ChangeLog
+git bisect skip b01787da4e0124fb933f33078e64a9eddf66e0ae
+# skip: [4c559edd2db9c9b8c4c0ef255f302fb6a0750403] 	* include/debug/deque (__gnu_debug::deque): Make base class C++11 	allocator aware.
+git bisect skip 4c559edd2db9c9b8c4c0ef255f302fb6a0750403
+# skip: [24c4f18d7028e31f9bf1e434c59b13f389d8e7e4] Fix std::deque move construction with non-equal allocators.
+git bisect skip 24c4f18d7028e31f9bf1e434c59b13f389d8e7e4
+# skip: [20a52496a54ae8916e2bfc4d38aec95bb3592242] 2014-09-19  Michael Meissner  <meissner@linux.vnet.ibm.com>
+git bisect skip 20a52496a54ae8916e2bfc4d38aec95bb3592242
+# skip: [2d60011ff237fb4ae23988cd432e381458369300] 2014-11-11  Siva Chandra Reddy  <sivachandra@google.com>
+git bisect skip 2d60011ff237fb4ae23988cd432e381458369300
+# skip: [eb9e71f95627384e90917de4213717f1907fa519] Daily bump.
+git bisect skip eb9e71f95627384e90917de4213717f1907fa519
+# skip: [1d2d4c47e5834281763acb40f45cdce3d176a2f4] gcc/testsuite
+git bisect skip 1d2d4c47e5834281763acb40f45cdce3d176a2f4
+# skip: [4a4ad8ebca374c55cf325126c5b14539d0d6b344] 	* g++.dg/cpp1y/lambda-generic-variadic2.C: Fix.
+git bisect skip 4a4ad8ebca374c55cf325126c5b14539d0d6b344
+# skip: [139e42e60a310dbf078532d3ed38bb82c92fc7d8] Use POINTER_SIZE to check for pointer size
+git bisect skip 139e42e60a310dbf078532d3ed38bb82c92fc7d8
+# skip: [cf46051daa1c48e222ce01e94ebc93541a9f37ea] 	PR libstdc++/63449 	* doc/xml/manual/containers.xml: Remove outdated section. 	* doc/html/*: Regenerate.
+git bisect skip cf46051daa1c48e222ce01e94ebc93541a9f37ea
+# bad: [74eacc022e5805072fbbce4c0e2c2d6d0c412cf3] 	* de.po: Update.
+git bisect bad 74eacc022e5805072fbbce4c0e2c2d6d0c412cf3
+# skip: [491d11baf3333bec5a92ae02828e86cd8f72c55c] Add bounds checking to vqdm*_lane intrinsics via a qualifier that also flips endianness
+git bisect skip 491d11baf3333bec5a92ae02828e86cd8f72c55c
+# skip: [96ddcbba59f0ada0469a300ba14e1e22619f782e] [AArch64]Fix ICE at -O0 on vld1_lane intrinsics
+git bisect skip 96ddcbba59f0ada0469a300ba14e1e22619f782e
+# bad: [4422041b99eab027efac17638ebdc3d2f2280d45] 	PR gcov-profile/64634 	* tree-eh.c (frob_into_branch_around): Fix up typos 	in function comment. 	(lower_catch): Put eh_seq resulting from EH lowering of 	the cleanup sequence after the cleanup rather than before 	it.
+git bisect bad 4422041b99eab027efac17638ebdc3d2f2280d45
+# skip: [8566b7c5daa85fa06189e0be0f4a3aeeec4fe8ed] 	* config/pa/pa.md (trap): New insn.  Add "trap" to attribute type. 	Don't allow trap insn in in_branch_delay, in_nullified_branch_delay 	or in_call_delay.
+git bisect skip 8566b7c5daa85fa06189e0be0f4a3aeeec4fe8ed
+# skip: [7298e195fbc41c9985920f5320acc9072d8fd727] 2014-12-05  Sandra Loosemore  <sandra@codesourcery.com>
+git bisect skip 7298e195fbc41c9985920f5320acc9072d8fd727
+# skip: [0e9a25a00f8af82f812e6f48165d2766eaaefee1] 2014-07-30  Vincent Celier  <celier@adacore.com>
+git bisect skip 0e9a25a00f8af82f812e6f48165d2766eaaefee1
+# skip: [351855a5cb5432c9ed4827ec0fe3587dbc0b76a7] 2014-12-02  Manuel López-Ibáñez  <manu@gcc.gnu.org>
+git bisect skip 351855a5cb5432c9ed4827ec0fe3587dbc0b76a7
+# skip: [166a5dad6dacfd2f10214f264bda827094e71795] 2014-07-31  Javier Miranda  <miranda@adacore.com>
+git bisect skip 166a5dad6dacfd2f10214f264bda827094e71795
+# skip: [cd1724ebe7dc01172acb8645583f218326012dca] Daily bump.
+git bisect skip cd1724ebe7dc01172acb8645583f218326012dca
+# skip: [b06b9ff6d23d27d7ba5a2e5f0edcc721dd461637] 	* ipa-inline.c (early_inliner): Skip inlining only in always_inlined; 	if some always_inline was inlined, apply changes before inlining 	heuristically.
+git bisect skip b06b9ff6d23d27d7ba5a2e5f0edcc721dd461637
+# skip: [4495e712b437ba71254613884e372f80c6f34840] 	* testsuite/Makefile.in: Regenerate.
+git bisect skip 4495e712b437ba71254613884e372f80c6f34840
+# skip: [a31a370fefd1c99e5b6f5371c8746133f82c49c4] 	PR libstdc++/64828 	* libsupc++/Makefile.am: Compile del_opvs.cc as C++14. 	* libsupc++/Makefile.in: Regenerate. 	* src/c++11/Makefile.in: Regenerate.
+git bisect skip a31a370fefd1c99e5b6f5371c8746133f82c49c4
+# skip: [6d0128c87c17be3f8ad646d1d95b35ed2683d994] PR lto/63968
+git bisect skip 6d0128c87c17be3f8ad646d1d95b35ed2683d994
+# skip: [f100306fa18fa53178f59d1114e6eedfa37abc30] PR libfortran/64770 Segfault when trying to open existing file with status="new".
+git bisect skip f100306fa18fa53178f59d1114e6eedfa37abc30
+# skip: [52200d03c231f0bddbd4bbc5cd3608c6a1dd4598] IPA ICF pass, part 3/5
+git bisect skip 52200d03c231f0bddbd4bbc5cd3608c6a1dd4598
+# skip: [9c8669e460b979ec1de2035c82ecc76aa170df9e] [ARM/AArch64][testsuite] Add vqdmull tests.
+git bisect skip 9c8669e460b979ec1de2035c82ecc76aa170df9e
+# skip: [6671a28c2f5aede7d055f4cf02b2a380da4ac31a] 2014-11-20  Robert Dewar  <dewar@adacore.com>
+git bisect skip 6671a28c2f5aede7d055f4cf02b2a380da4ac31a
+# skip: [53ec6b3f003abd3528f988fa32a07cc084128563] 2015-01-18  Andre Vehreschild  <vehre@gmx.de> 	    Janus Weil <janus@gcc.gnu.org>
+git bisect skip 53ec6b3f003abd3528f988fa32a07cc084128563
+# skip: [21a495104a9f486b345234cb66be4c9fa85dce84] rs6000: Fix signed integer overflows
+git bisect skip 21a495104a9f486b345234cb66be4c9fa85dce84
+# skip: [89862b24dcaf3835446547b3b866cd80e5d18d59] Add new names for intrinsics.
+git bisect skip 89862b24dcaf3835446547b3b866cd80e5d18d59
+# skip: [6c95e7741c2e2d25353a2b464ac09db3aaecf18b] AVX-512. 81.1/n. Extend `function_code' field `tree_var_decl' structure.
+git bisect skip 6c95e7741c2e2d25353a2b464ac09db3aaecf18b
+# skip: [9f8bc6e813ccb5cb47c3d7f7b14a4aed474d8600] PR target/64387
+git bisect skip 9f8bc6e813ccb5cb47c3d7f7b14a4aed474d8600
+# skip: [e8ee28d7325d4b1d7f59b2353781601248d51959] 2014-10-24  Christophe Lyon  <christophe.lyon@linaro.org>
+git bisect skip e8ee28d7325d4b1d7f59b2353781601248d51959
+# skip: [2ccb7428c9788777bb4a9f2f0e03cd3484086694] 2014-08-27  Richard Biener  <rguenther@suse.de>
+git bisect skip 2ccb7428c9788777bb4a9f2f0e03cd3484086694
+# skip: [c4facd475889891c2bb9ac171c125d331b3186d3] 2014-11-15  Tobias Burnus  <burnus@net-b.de>
+git bisect skip c4facd475889891c2bb9ac171c125d331b3186d3
+# skip: [c3f707fc954f479984a03666365273f902332988] PR target/64533 * config/sh/sh.md (*addsi3_compact): Use u constraint instead of r for the second alternative of the destination operand.
+git bisect skip c3f707fc954f479984a03666365273f902332988
+# skip: [6fba50699617367216712bf3eaec3d6d0b91852f] Daily bump.
+git bisect skip 6fba50699617367216712bf3eaec3d6d0b91852f
+# skip: [8173baf5feae49224e485ad85a5f34d468be531f] Minor reformatting.
+git bisect skip 8173baf5feae49224e485ad85a5f34d468be531f
+# skip: [648c18278a116904ec838102670bbae9300a9650] Daily bump.
+git bisect skip 648c18278a116904ec838102670bbae9300a9650
+# skip: [374658e5b117c80cd22317f58b71a0fa8800bd3d] Daily bump.
+git bisect skip 374658e5b117c80cd22317f58b71a0fa8800bd3d
+# skip: [d4bd0e64bb6a246c15685074e635070593aea2f0] [Patch 7/7] Remove *_BY_PIECES_P
+git bisect skip d4bd0e64bb6a246c15685074e635070593aea2f0
+# skip: [ac5e9932a0cdec8154b918c0bc5a62c072c1dd1d]         * g++.dg/template/using30.C: Move ...         * g++.dg/cpp0x/alias-decl-45.C: ... here.
+git bisect skip ac5e9932a0cdec8154b918c0bc5a62c072c1dd1d
+# skip: [1675d1be7ee8eed319ebb548803640231c920456] 2014-11-10  François Dumont  <fdumont@gcc.gnu.org>
+git bisect skip 1675d1be7ee8eed319ebb548803640231c920456
+# skip: [070339409c5eec9b8e9716bdd619731782581ae9] gcc/testsuite/ 	PR target/54089 	* gcc.target/sh/pr54089-1.c: Change optimization level from -O1 to -O2.
+git bisect skip 070339409c5eec9b8e9716bdd619731782581ae9
+# skip: [dec734e2e5f82cbd9be04fb66a8ce9528a84a9b0] ICF is disabled for the test because of default char signedness on powerpc64 target.
+git bisect skip dec734e2e5f82cbd9be04fb66a8ce9528a84a9b0
+# skip: [787b5da60fdb9921b073ee6a73acf9b3325ef48f] 2014-09-19  Paolo Carlini  <paolo.carlini@oracle.com>
+git bisect skip 787b5da60fdb9921b073ee6a73acf9b3325ef48f
+# skip: [aa80e2138f1b80c87d8e7feeeb852193ce797775] 2014-11-06  Prachi Godbole  <prachi.godbole@imgtec.com>
+git bisect skip aa80e2138f1b80c87d8e7feeeb852193ce797775
+# skip: [027c023ad0a4f0a43634da8ed7e933eb36471764] 2014-09-23  Paolo Carlini  <paolo.carlini@oracle.com>
+git bisect skip 027c023ad0a4f0a43634da8ed7e933eb36471764
+# skip: [53597a5597e4fc834b58231ffa0f44c3220fe341] Add a hook to inform a port about call arguments.
+git bisect skip 53597a5597e4fc834b58231ffa0f44c3220fe341
+# skip: [a31e949678f72db8c3af5619a2fee62ff2b7cb7f] gcc/
+git bisect skip a31e949678f72db8c3af5619a2fee62ff2b7cb7f
+# bad: [18d8d57c3be12b7f3269cee702eb7074ea123e38] 	* config/pa/pa.c (pa_secondary_reload): Request a secondary reload 	for all floading point loads and stores except those using a register 	index address. 	* config/pa/pa.md: Add new patterns to load a lo_sum DLT operand 	to a register.
+git bisect bad 18d8d57c3be12b7f3269cee702eb7074ea123e38
+# skip: [35f63fec1fec65171e934e1d0a1e0ab3031824b0] 	* gcc-interface/decl.c (gnat_to_gnu_entity) <E_Record_Type>: For a 	derived untagged type that renames discriminants, be prepared for 	a type derived from a private discriminated type when changing the 	type of the stored discriminants.
+git bisect skip 35f63fec1fec65171e934e1d0a1e0ab3031824b0
+# skip: [5cb678b4843d9d4eae15605e2c0f420f88ed382e] Fix error location for cilk error message
+git bisect skip 5cb678b4843d9d4eae15605e2c0f420f88ed382e
+# skip: [ae7b1e5c7d7c23a591313104f63bf5ff1dfe6913] Fix for PR bootstrap/63573.
+git bisect skip ae7b1e5c7d7c23a591313104f63bf5ff1dfe6913
+# skip: [4fdd03bf757888fbd87169f4583068d6eef8c8d1] Daily bump.
+git bisect skip 4fdd03bf757888fbd87169f4583068d6eef8c8d1
+# skip: [f2225dc8ebf68a940551bb295e956eb88fb01b81] Also turn off OPTION_MASK_ABI_X32 for -m16
+git bisect skip f2225dc8ebf68a940551bb295e956eb88fb01b81
+# skip: [a0ac7738c98f6e938d0ce7f8b2efa91bcd55b046] Use aliases for type traits in C++14 mode.
+git bisect skip a0ac7738c98f6e938d0ce7f8b2efa91bcd55b046
+# skip: [39786c804b3d3927f800bf8834ad849138d06136] 	PR c++/57510 	* typeck2.c (split_nonconstant_init_1): Handle arrays here. 	(store_init_value): Not here. 	(split_nonconstant_init): Look through TARGET_EXPR.  No longer static. 	* cp-tree.h: Declare split_nonconstant_init. 	* call.c (set_up_extended_ref_temp): Use split_nonconstant_init.
+git bisect skip 39786c804b3d3927f800bf8834ad849138d06136
+# skip: [33cc3e79238578a84e9419e1e84e781122226eb2] 	* sanopt.c (sanopt_optimize_walker): Remove unused variables.
+git bisect skip 33cc3e79238578a84e9419e1e84e781122226eb2
+# skip: [4c87b50c790029271d24922011793f5e219ecef7] 2014-12-09  Michael Haubenwallner <michael.haubenwallner@ssi-schaefer.com>
+git bisect skip 4c87b50c790029271d24922011793f5e219ecef7
+# skip: [388a5b26893e35fae82423a99984896846ddb9fb] 2014-11-05  Christophe Lyon  <christophe.lyon@linaro.org>
+git bisect skip 388a5b26893e35fae82423a99984896846ddb9fb
+# skip: [46f1d251d0f4b49e0c51cfce54e9d5b4ca450690] 2014-12-05  Thomas Preud'homme  <thomas.preudhomme@arm.com>
+git bisect skip 46f1d251d0f4b49e0c51cfce54e9d5b4ca450690
+# bad: [a487aadc9903c146911dbebd95333bf6fa6ab812] 	* dwarf2out.c (output_die): Use "%s", name instead of name to 	avoid -Wformat-security warning.
+git bisect bad a487aadc9903c146911dbebd95333bf6fa6ab812
+# skip: [95ffcfaf0313ec5b9221a26f0837fe393ad3a853] 	* gcc.dg/vmx/3c-01a.c: Add default options from vmx.exp. 	* gcc.dg/vmx/ops.c: Likewise. 	* gcc.dg/vmx/ops-long-1.c: Likewise.
+git bisect skip 95ffcfaf0313ec5b9221a26f0837fe393ad3a853
+# skip: [e9b1fbeb38fa12b52e83e681e7ad97862fec437d] 2015-01-26  Richard Biener  <rguenther@suse.de>
+git bisect skip e9b1fbeb38fa12b52e83e681e7ad97862fec437d
+# skip: [caa5509eb09ac5b5e6d26730c3907f6ab78b0929] [AArch64] Add vector pattern for __builtin_ctz
+git bisect skip caa5509eb09ac5b5e6d26730c3907f6ab78b0929
+# skip: [9c3d0685d3c1326b09b7ed914a09be21f4985653] 	* semantics.c (expand_or_defer_fn_1): Check for keep-inline-dllexport 	that we operate on a true inline.
+git bisect skip 9c3d0685d3c1326b09b7ed914a09be21f4985653
+# skip: [9f75f0266e3611513f196c898088e2712a71eaf4] 	* machmode.h (int_n_data_t): New. 	(int_n_enabled_p): New. 	(int_n_data): New. 	* tree.c (int_n_enabled_p): New. 	(int_n_trees): New. 	(make_or_reuse_type): Check for all __intN types, not just 	__int128. 	(build_common_tree_nodes): Likewise.  Also fill in integer_typs[] 	entries. 	* tree.h (int128_integer_type_node): Remove. 	(int128_unsigned_type_node): Remove. 	(int_n_trees_t): New. 	(int_n_enabled_p): New. 	(int_n_trees): New. 	* toplev.c (standard_type_bitsize): New. 	(do_compile): Check which __intN types are enabled for the current 	run. 	* builtin-types.def (BT_INT128): Remove. 	(BT_UINT128): Remove. 	* machmode.def: Add macro to create __int128 for all targets. 	* stor-layout.c (mode_for_size): Support __intN types. 	(smallest_mode_for_size): Likewise. 	(initialize_sizetypes): Support __intN types. 	* genmodes.c (struct mode_data): Add int_n field. 	(blank_mode): Likewise. 	(INT_N): New. 	(make_int_n): New. 	(emit_insn_modes_h): Count __intN entries and define 	NUM_INT_N_ENTS. 	(emit_mode_int_n): New. 	(emit_insn_modes_c): Call it. 	* gimple.c (gimple_signed_or_unsigned_type): Check for all __intN 	types, not just __int128. 	* tree-core.h (integer_type_kind): Remove __int128-specific 	entries, reserve spots for __intN entries.
+git bisect skip 9f75f0266e3611513f196c898088e2712a71eaf4
+# skip: [6d0b38b1dbc3abc5769fefbe54154f457c957c2a] 	PR fortran/62076 	* openmp.c (gfc_match_omp_clauses): When failed to match 	operator name, defined op name or name, set buffer to 	empty string.  Don't call gfc_find_omp_udr if buffer is empty 	string. 	(gfc_match_omp_declare_reduction): Call gfc_undo_symbols () 	before calling gfc_free_omp_udr.
+git bisect skip 6d0b38b1dbc3abc5769fefbe54154f457c957c2a
+# skip: [1130105d35c9d312f6d1058dda54bdb9b370fb97] gcc/testsuite/ 	PR target/63260 	* gcc.target/sh/pr63260.c: Fix typo __builtin_fabs vs. __builtin_abs.
+git bisect skip 1130105d35c9d312f6d1058dda54bdb9b370fb97
+# skip: [cbca0157ae25e095b924a334d4e2bed857aca6cd] gcc/testsuite/
+git bisect skip cbca0157ae25e095b924a334d4e2bed857aca6cd
+# skip: [ef7f5966f4a10b3b7eb58f60750868636ef981a6] 	* config/mips/mips.md (compression): Add `micromips32' setting. 	(enabled, length): Handle it. 	(shift_compression): Replace `micromips' with `micromips32' in 	the `compression' attribute. 	(*add<mode>3, sub<mode>3): Likewise.
+git bisect skip ef7f5966f4a10b3b7eb58f60750868636ef981a6
+# skip: [271b79e437f1115932a44e1edb9664cce7103ece] [gcc]
+git bisect skip 271b79e437f1115932a44e1edb9664cce7103ece
+# skip: [1697db31a8df3ff8280b59dc839ca0fa510d3362] 	* cgraph.c (symbol_table::create_edge): Use opt_for_fn. 	(cgraph_node::cannot_return_p): Likewise. 	(cgraph_edge::cannot_lead_to_return_p): Likewise. 	(cgraph_edge::maybe_hot_p): Likewise.
+git bisect skip 1697db31a8df3ff8280b59dc839ca0fa510d3362
+# skip: [7e48bf22959639dcf832133f22d3dc11297e01b5] reload: Use rtx_insn (also touches caller-save.c and config/arc/arc)
+git bisect skip 7e48bf22959639dcf832133f22d3dc11297e01b5
+# skip: [120092dd066ddf20116da297fe1aa1b79353493f] New unroll and jam option in Graphite.
+git bisect skip 120092dd066ddf20116da297fe1aa1b79353493f
+# skip: [fc5e424b735d663fe2d9eecc76aaafbb6c453ede] 	PR libstdc++/64239 	* include/bits/regex.h (match_results<>::swap): Use std::swap 	instead of swap. 	* include/bits/regex_compiler.tcc (_Compiler<>::_M_quantifier): 	Likewise. 	* testsuite/28_regex/match_results/swap.cc: New testcase.
+git bisect skip fc5e424b735d663fe2d9eecc76aaafbb6c453ede
+# skip: [bc0ce2bd78d0b7c07835c2fb0fb2b6da168b43af] Remove VEC_RSHIFT_EXPR tree code, now unused
+git bisect skip bc0ce2bd78d0b7c07835c2fb0fb2b6da168b43af
+# skip: [2342ac7b4872913f5ae66ed737843c9132d09a6f] gcc/ 	* cse.c (change_cc_mode_args): Delete. 	(cse_change_cc_mode): Turn from being a for_each_rtx callback to being 	a function that examines each subrtx itself.  Take the fields of 	change_cc_mode_args as argument and return void. 	(cse_change_cc_mode_insn): Update calls accordingly.
+git bisect skip 2342ac7b4872913f5ae66ed737843c9132d09a6f
+# skip: [90d9e583a12ae355b23ae12641e6cca27f1243f8] 2014-11-11  Tobias Burnus  <burnus@net-b.de>
+git bisect skip 90d9e583a12ae355b23ae12641e6cca27f1243f8
+# skip: [3e76fcb4ff32c704ae78f76f8c597873f90b3a74] gdbinit.in: Skip various inline functions in rtl.h when stepping
+git bisect skip 3e76fcb4ff32c704ae78f76f8c597873f90b3a74
+# skip: [c4d0de0bf27d8e44a439a775d50d28b442b9c8b6] [Patch AArch64] Fix up BSL expander for floating point types
+git bisect skip c4d0de0bf27d8e44a439a775d50d28b442b9c8b6
+# skip: [6ea2b1bcb9b33f3a89078bab89bdd7a11d1ef422] 	PR c/62024 	* c-parser.c (c_parser_static_assert_declaration_no_semi): Strip no-op 	conversions.
+git bisect skip 6ea2b1bcb9b33f3a89078bab89bdd7a11d1ef422
+# skip: [e94159c98bd5ad4b6a66ee922e3c7158ffd9da77] gcc/ 	* config/frv/frv.c (frv_registers_conflict_p_1): Take an rtx rather 	than an rtx *.  Take the regstate_t directly rather than via a void *. 	Return a bool rather than an int.  Iterate over all subrtxes here. 	(frv_registers_conflict_p): Update accordingly.
+git bisect skip e94159c98bd5ad4b6a66ee922e3c7158ffd9da77
+# skip: [f9885b8a428cef1162598ce4df282c9cbc6c4f46] 	* constexpr.c: Tweak comments and formatting.
+git bisect skip f9885b8a428cef1162598ce4df282c9cbc6c4f46
+# skip: [c434260f696108b748a69fbc9bae8a0826492d6f] 2014-11-09  Richard Biener  <rguenther@suse.de>
+git bisect skip c434260f696108b748a69fbc9bae8a0826492d6f
+# skip: [af822fd2034cfd56360d042fd0b954f77121010b] 	* cgraphunit.c (analyze_functions): Do not analyze extern inline 	funtions when not optimizing; skip comdat locals.
+git bisect skip af822fd2034cfd56360d042fd0b954f77121010b
+# skip: [770ae4bbe38a60a250f49e7ea5bf42bd37856313] 2014-11-07  Richard Biener  <rguenther@suse.de>
+git bisect skip 770ae4bbe38a60a250f49e7ea5bf42bd37856313
+# skip: [4149f31e480b3e75152b15ca9b17395b3a2e6d20]         Minor interface cleanups of libgccjit         * jit/jit-playback.c (convert_to_dso): Use auto_vec instead         of automatic array to build up command line.         * jit/jit-recording.c (recording::context::set_str_option):         Make copy of the string.         (recording::context::~context): Free string options.         * jit/jit-recording.h (recording::context): Adjust type         of m_str_options member.         * jit/libgccjit.h: Adjust comment about         gcc_jit_context_set_str_option parameter begin used after         the call.         Update comment now that all interfaces are copy strings         if necessary.         * jit/libgccjit++.h (gccjit::context): Add set_str_option         member function.
+git bisect skip 4149f31e480b3e75152b15ca9b17395b3a2e6d20
+# skip: [1d715999fd04ec367e51fdfafdd76f7702cf9338] Revert revision 217149 because it breaks Ada:
+git bisect skip 1d715999fd04ec367e51fdfafdd76f7702cf9338
+# skip: [66b6927546f23c9a35bb414552ed96a1ecdcb720] PR jit/64166: Add API entrypoint gcc_jit_context_enable_dump
+git bisect skip 66b6927546f23c9a35bb414552ed96a1ecdcb720
+# skip: [fb90ac03dc4b775267bee9a19333b2628bf3f0a8] Allow a port not to define an indirect_jump pattern.
+git bisect skip fb90ac03dc4b775267bee9a19333b2628bf3f0a8
+# skip: [e2971c54d58d98b11b49fccfc7343e6acff97195] 	PR c++/64029 	* decl.c (grok_reference_init): Complete array type.
+git bisect skip e2971c54d58d98b11b49fccfc7343e6acff97195
+# skip: [34306a6d68db2f31fd087508fc0bc9dd5524a7ab] 	* doc/invoke.texi (-Wno-odr): Fix @item entry.  Tweak wording.
+git bisect skip 34306a6d68db2f31fd087508fc0bc9dd5524a7ab
+# skip: [5f69fdaabd40caaf81e63cdb09d175e3d660daa2] libgo/configure: Use -Qunused-arguments for asm tests if supported.
+git bisect skip 5f69fdaabd40caaf81e63cdb09d175e3d660daa2
+# skip: [0d66ba6ced1a26807dc6537ac5f7ac4ffac8efec] 2014-07-30  Bob Duff  <duff@adacore.com>
+git bisect skip 0d66ba6ced1a26807dc6537ac5f7ac4ffac8efec
+# skip: [6da5aa289dbdeb0afa9967a248e413d5d2e76a43] gcc/ 	* tree-vect-data-refs.c (vect_transform_grouped_load): Limit shift 	permutations to loads group of size 3.
+git bisect skip 6da5aa289dbdeb0afa9967a248e413d5d2e76a43
+# skip: [ad53da0323537392c0b9f9c20a619d7bd33dd345] 	* doc/invoke.texi (AVR Options): Add documentation about 	__AVR_DEVICE_NAME__ built-in macro.
+git bisect skip ad53da0323537392c0b9f9c20a619d7bd33dd345
+# skip: [8be31d902e67cf46a6955e5d1c7886e8f5225be0] /cp 2014-10-06  Paolo Carlini  <paolo.carlini@oracle.com>
+git bisect skip 8be31d902e67cf46a6955e5d1c7886e8f5225be0
+# skip: [431205b753bfa26d1711e40ce478d9e92fd157da] add a hash_set based on hash_table
+git bisect skip 431205b753bfa26d1711e40ce478d9e92fd157da
+# skip: [bd35ba528ac0064eb863c629aa0cb30e10ef0327] pr63856 - test case
+git bisect skip bd35ba528ac0064eb863c629aa0cb30e10ef0327
+# skip: [5510bd70c572a590cfdc04a275cdd40c80901b6c] 2014-08-06  Richard Biener  <rguenther@suse.de>
+git bisect skip 5510bd70c572a590cfdc04a275cdd40c80901b6c
+# skip: [045d4897e1a9e7886722a6fd9ad74e1fdf65a04e] gcc/         * ira.c (struct equivalence): Change member "is_arg_equivalence" and         "replace" into boolean bitfields; turn member "loop_depth" into a short         integer; add new member "no_equiv" and "reserved".         (no_equiv): Set no_equiv of struct equivalence if register is marked         as having no known equivalence.         (update_equiv_regs): Check all definitions for a multiple-set         register to make sure that the RHS have the same value.
+git bisect skip 045d4897e1a9e7886722a6fd9ad74e1fdf65a04e
+# skip: [2eac3ab5e8ef197e3308cc717a412b5141508dbb] 2014-08-12  Thomas Preud'homme  <thomas.preudhomme@arm.com>
+git bisect skip 2eac3ab5e8ef197e3308cc717a412b5141508dbb
+# skip: [931e67744c527e66776545ce3d5ed1235ec59a4f] 	* include/std/complex (complex::real, complex::imag): Add const. 	* testsuite/26_numerics/complex/value_operations/constexpr2.cc: New.
+git bisect skip 931e67744c527e66776545ce3d5ed1235ec59a4f
+# skip: [e4ee8a4804b8dfb51872616f028cdb49e9b587b1] 2015-01-17  Sandra Loosemore  <sandra@codesourcery.com>
+git bisect skip e4ee8a4804b8dfb51872616f028cdb49e9b587b1
+# skip: [d48782056185e9431d272845c8bb55776033ab78] Handle copy cycles in pass_cprop_hardreg
+git bisect skip d48782056185e9431d272845c8bb55776033ab78
+# skip: [32cf7025dfa4a65f3e4dafb3b46b4816b119a75b] 	* flag-types.h (enum sanitize_code): Add SANITIZE_VPTR, 	include SANITIZE_VPTR in SANITIZE_UNDEFINED. 	* opts.c (common_handle_option): Add -fsanitize=vptr. 	* sanitizer.def (BUILT_IN_UBSAN_HANDLE_DYNAMIC_TYPE_CACHE_MISS, 	BUILT_IN_UBSAN_HANDLE_DYNAMIC_TYPE_CACHE_MISS_ABORT): New. 	* ubsan.h (enum ubsan_null_ckind): Add UBSAN_DOWNCAST_POINTER, 	UBSAN_DOWNCAST_REFERENCE, UBSAN_UPCAST and UBSAN_CAST_TO_VBASE. 	(ubsan_expand_vptr_ifn): New prototype. 	* internal-fn.c (expand_ANNOTATE, expand_GOMP_SIMD_LANE, 	expand_GOMP_SIMD_VF, expand_GOMP_SIMD_LAST_LANE, expand_UBSAN_NULL, 	expand_UBSAN_BOUNDS, expand_UBSAN_OBJECT_SIZE, expand_ASAN_CHECK, 	expand_LOOP_VECTORIZED): Make argument nameless, remove 	ATTRIBUTE_UNUSED. 	(expand_UBSAN_VPTR): New function. 	* internal-fn.def (UBSAN_NULL, ASAN_CHECK): Use R instead of W 	in fn spec. 	(UBSAN_VPTR): New internal function. 	* sanopt.c (tree_map_traits): Renamed to ... 	(sanopt_tree_map_traits): ... this. 	(sanopt_tree_triplet, sanopt_tree_triplet_map_traits): New classes. 	(sanopt_ctx): Adjust asan_check_map type for tree_map_traits 	to sanopt_tree_map_traits renaming.  Add vptr_check_map field. 	(maybe_optimize_ubsan_vptr_ifn): New function. 	(sanopt_optimize_walker): Handle IFN_UBSAN_VPTR. 	(pass_sanopt::execute): Likewise.  Call sanopt_optimize even for 	-fsanitize=vptr. 	* tree-ssa-alias.c (call_may_clobber_ref_p_1): Handle certain 	internal calls like pure functions for aliasing, even when they 	have other side-effects that prevent making them ECF_PURE. 	* ubsan.c (ubsan_vptr_type_cache_decl): New variable. 	(ubsan_expand_vptr_ifn): New function. cp/ 	* cp-gimplify.c (cp_genericize_r): Call 	cp_ubsan_maybe_instrument_member_call for member calls. 	(cp_ubsan_check_member_access_r): New function. 	(cp_genericize_tree): Call cp_ubsan_instrument_member_accesses. 	* cp-tree.h (cp_ubsan_maybe_instrument_member_call, 	cp_ubsan_instrument_member_accesses, 	cp_ubsan_maybe_instrument_downcast, 	cp_ubsan_maybe_instrument_cast_to_vbase): New prototypes. 	* cp-ubsan.c: New file. 	* Make-lang.in (CXX_AND_OBJCXX_OBJS): Add cp/cp-ubsan.o. 	* constexpr.c (cxx_eval_call_expression): Return void_node 	for IFN_UBSAN_VPTR. 	(potential_constant_expression_1): Return true for 	UBSAN_NULL, UBSAN_BOUNDS and UBSAN_VPTR internal calls. 	* typeck.c (build_class_member_access_expr): Provide locus 	for COMPONENT_REFs. 	(build_static_cast_1): Instrument downcasts. 	* class.c (build_base_path): For -fsanitize=vptr and !fixed_type_p 	add ubsan instrumentation for virtual_access. 	* call.c: Include internal-fn.h. 	(set_flags_from_callee): Handle internal calls. gcc/testsuite/ 	* g++.dg/ubsan/vptr-1.C: New test. 	* g++.dg/ubsan/vptr-2.C: New test. 	* g++.dg/ubsan/vptr-3.C: New test. 	* g++.dg/ubsan/vptr-4.C: New test. 	* g++.dg/ubsan/vptr-5.C: New test. 	* g++.dg/ubsan/vptr-6.C: New test. 	* g++.dg/ubsan/vptr-7.C: New test. 	* g++.dg/ubsan/vptr-8.C: New test. 	* g++.dg/ubsan/vptr-9.C: New test.
+git bisect skip 32cf7025dfa4a65f3e4dafb3b46b4816b119a75b
+# skip: [1413c4fb7bd2564c8ba37f1ed8f97b14b339df89] gcc/testsuite 	* c-c++-common/tm/safe-3.c: Add bind_pic_locally. 	* g++.dg/ipa/devirt-15.C: Ditto. 	* g++.dg/ipa/devirt-7.C: Ditto. 	* g++.dg/ipa/pr60600.C: Ditto. 	* g++.dg/opt/vt2.C: Ditto. 	* g++.dg/opt/vt4.C: Ditto. 	* g++.dg/pr48484.C: Ditto. 	* g++.dg/tm/pr47746.C: Ditto. 	* g++.dg/tree-ssa/pr57380.C: Ditto. 	* gcc.dg/ipa/inline-4.c: Ditto. 	* gcc.dg/ipa/inlinehint-1.c: Ditto. 	* gcc.dg/ipa/inlinehint-2.c: Ditto. 	* gcc.dg/ipa/inlinehint-3.c: Ditto. 	* gcc.dg/pr47276.c: Ditto. 	* gcc.dg/pure-2.c: Ditto. 	* gcc.dg/tm/nested-2.c: Ditto. 	* gcc.dg/tree-ssa/alias-29.c: Ditto. 	* gcc.target/i386/3dnow-1.c: Ditto. 	* gcc.target/i386/3dnow-2.c: Ditto. 	* gcc.target/i386/3dnowA-1.c: Ditto. 	* gcc.target/i386/3dnowA-2.c: Ditto. 	* gcc.target/i386/avx-1.c: Ditto. 	* gcc.target/i386/avx-2.c: Ditto. 	* gcc.target/i386/memcpy-1.c: Ditto. 	* gcc.target/i386/mmx-1.c: Ditto. 	* gcc.target/i386/mmx-2.c: Ditto. 	* gcc.target/i386/sse-14.c: Ditto. 	* gcc.target/i386/sse-22.c: Ditto. 	* gcc.target/i386/sse-22a.c: Ditto. 	* gcc.target/i386/sse-23.c: Ditto. 	* gcc.target/i386/sse-24.c: Ditto. 	* gcc.target/i386/vect-double-1.c: Ditto. 	* g++.dg/fstack-protector-strong.C: Add target nonpic. 	* gcc.dg/fstack-protector-strong.c: Ditto.
+git bisect skip 1413c4fb7bd2564c8ba37f1ed8f97b14b339df89
+# skip: [a903c451df814461a3e134d5df9348befec8eae0] explow.c: Use rtx_insn and rtx_code_label
+git bisect skip a903c451df814461a3e134d5df9348befec8eae0
+# skip: [6ce12a3505588423aaa4a811dc6820cf438dd18c] 	* config/avr/lib1funcs.S (__do_global_dtors): Fix wrong code 	introduced with 2014-10-21 trunk r216525.
+git bisect skip 6ce12a3505588423aaa4a811dc6820cf438dd18c
+# skip: [319b6636a1460e8baf897193fa22004d9960ea7f] 2015-01-11  Janus Weil  <janus@gcc.gnu.org>
+git bisect skip 319b6636a1460e8baf897193fa22004d9960ea7f
+# skip: [74f2b7d72d923ddd491ceb3e925a45070db5fd97] Remove cached_first_cycle_multipass_dfa_lookahead and cached_issue_rate
+git bisect skip 74f2b7d72d923ddd491ceb3e925a45070db5fd97
+# skip: [627683ab0daf92e33967ac6234660751fa04816b] mn10300: Fixes to PARALLEL handling within mn10300_adjust_sched_cost
+git bisect skip 627683ab0daf92e33967ac6234660751fa04816b
+# skip: [cede7d6df6e2ee99d876e1252e35ba745fd64b8b] 	PR rtl-optimization/63615 	* simplify-rtx.c (simplify_plus_minus): Set "canonicalized" on 	decomposing PLUS or MINUS if operands are not placed adjacent 	in the "ops" array.
+git bisect skip cede7d6df6e2ee99d876e1252e35ba745fd64b8b
+# skip: [2e8e2399532c279302a383ed0c9aec8db68ab382] 	* testsuite/ext/random/*: Fix incorrect standard references in 	comments.
+git bisect skip 2e8e2399532c279302a383ed0c9aec8db68ab382
+# skip: [6f4e40cd84e1fceffbef32e22d5d7b13729f4b75] gcc/ 	* config/spu/spu.c: Include rtl-iter.h 	(ea_symbol_ref): Replace with... 	(ea_symbol_ref_p): ...this new function. 	(spu_legitimate_address_p): Update call accordingly. 	(spu_legitimate_constant_p): Likewise.  Use FOR_EACH_SUBRTX.
+git bisect skip 6f4e40cd84e1fceffbef32e22d5d7b13729f4b75
+# skip: [96f3c2b9903e92cf806719d18fc0682d617c0016] 2014-09-02  Segher Boessenkool  <segher@kernel.crashing.org>
+git bisect skip 96f3c2b9903e92cf806719d18fc0682d617c0016
+# skip: [511b66fbd69cd2debbb0bcde9752401b1292729d] gcc/ 	PR rtl-optimization/63340 (part 2) 	* rtl.h (invalid_mode_change_p): Delete. 	(valid_mode_changes_for_regno): New function. 	* reginfo.c (invalid_mode_change_p): Delete. 	(valid_mode_changes_for_regno): New function. 	* ira-costs.c (setup_regno_cost_classes_by_aclass): Restrict the 	classes to registers that are allowed by valid_mode_changes_for_regno. 	(setup_regno_cost_classes_by_mode): Likewise. 	(print_allocno_costs): Remove invalid_mode_change_p test. 	(print_pseudo_costs, find_costs_and_classes): Likewise.
+git bisect skip 511b66fbd69cd2debbb0bcde9752401b1292729d
+# skip: [0bd4773e0ed75dcbd72f6c80ff8161bd5b46ff57] * [SH] Split QI/HImode load/store via r0 when LRA is enabled.
+git bisect skip 0bd4773e0ed75dcbd72f6c80ff8161bd5b46ff57
+# skip: [05d5a6da74f67ca19d687dcb96bc08f03cba78e4] 2014-11-10  Richard Biener  <rguenther@suse.de>
+git bisect skip 05d5a6da74f67ca19d687dcb96bc08f03cba78e4
+# skip: [ff1be5c12b899a429bfddf9687e32674a479a41a] [ARM] Enable auto-vectorization for copysignf
+git bisect skip ff1be5c12b899a429bfddf9687e32674a479a41a
+# skip: [e27e1dc736f126a2457d548fb85e4a1c36fa1270] PR target/63534
+git bisect skip e27e1dc736f126a2457d548fb85e4a1c36fa1270
+# skip: [7f96f6527707998a24a6364137e5a06febb060d8] 2014-09-12  Richard Biener  <rguenther@suse.de>
+git bisect skip 7f96f6527707998a24a6364137e5a06febb060d8
+# skip: [6eb68b8fcf8badfbf12e5ea26f709c8b713265e4] Implement TARGET_ATOMIC_ASSIGN_EXPAND_FENV for powerpc*-*-linux* soft-float and e500.
+git bisect skip 6eb68b8fcf8badfbf12e5ea26f709c8b713265e4
+# skip: [25060713520b2ba33f6d525cb749711e22088143] 	PR c++/64100 	* g++.dg/template/pr64100.C: New file.
+git bisect skip 25060713520b2ba33f6d525cb749711e22088143
+# skip: [7f628c07628a6a0530669cf8ade74a0280ca190b] 2014-11-04  Jan-Benedict Glaw  <jbglaw@lug-owl.de>
+git bisect skip 7f628c07628a6a0530669cf8ade74a0280ca190b
+# skip: [b912dc17437cd95fbd55c62b16d812ee0bd521e2] [Testsuite] Add tests of reductions using whole-vector-shifts (ior)
+git bisect skip b912dc17437cd95fbd55c62b16d812ee0bd521e2
+# skip: [141eb62b271e86f160340936655dfbc302b31356] libgo: add s390 support
+git bisect skip 141eb62b271e86f160340936655dfbc302b31356
+# skip: [4f6fa3026c5db251d9bbe1563c1acb148efd052c] 	* include/bits/regex_compiler.h (_S_cache_size): Multiply the 	RHS of the shift-expression by _UseCache::value.
+git bisect skip 4f6fa3026c5db251d9bbe1563c1acb148efd052c
+# skip: [07f3273080a77f007b3634a4a46cbea0a18947bd] 	PR ipa/63566 	* cgraphunit.c (cgraph_node::analyze): Be sure target of thunk is 	aliases before trying to expand it. 	(cgraph_node::expand_thunk): Fix formating.
+git bisect skip 07f3273080a77f007b3634a4a46cbea0a18947bd
+# skip: [d48d97f1f2f4206e7da11bdf36ad82f9138c4576] Fix typo in ChangeLog
+git bisect skip d48d97f1f2f4206e7da11bdf36ad82f9138c4576
+# skip: [bf98079c634a645d97dc3871df0ebb34ac0b2ce3] 	* gcc.dg/builtins-58.c: Check for pow at the end of words only. 	* gcc.dg/pr46728-6.c: Ditto.
+git bisect skip bf98079c634a645d97dc3871df0ebb34ac0b2ce3
+# skip: [714f6439febbbb1bc56e17f109771652bcb0bf3b] 	* ipa-polymorphic-call.c (decl_maybe_in_construction_p): Be ready 	for BASE and OUTER_TYPE being NULL. 	(ipa_polymorphic_call_context::possible_dynamic_type_change): Add 	in_poly_cdtor parameter.
+git bisect skip 714f6439febbbb1bc56e17f109771652bcb0bf3b
+# skip: [0554566a54ae5f772798fde5489a56871f6e370c] 	* config/i386/i386-protos.h (ix86_use_pseudo_pic_reg): New. 	* config/i386/i386.h (PIC_OFFSET_TABLE_REGNUM): Simplify by 	using x86_use_pseudo_pic_reg. 	* config/i386/i386.c (ix86_conditional_register_usage): Remove 	support for fixed PIC register. 	(ix86_use_pseudo_pic_reg): Not static any more.
+git bisect skip 0554566a54ae5f772798fde5489a56871f6e370c
+# skip: [bcc7f9c93dae57aad8bbcb6b5f32594a21f889bb] 	* call.c (call_copy_ctor): New. 	(build_over_call): Use it to avoid infinite recursion on invalid code.
+git bisect skip bcc7f9c93dae57aad8bbcb6b5f32594a21f889bb
+# skip: [83c54f522df6aa3901cb35b7b921186dfa649e93] 	* config/rs6000/rs6000-cpus.def (POWERPC_MASKS): Add 	OPTION_MASK_QUAD_MEMORY_ATOMIC.
+git bisect skip 83c54f522df6aa3901cb35b7b921186dfa649e93
+# skip: [d3ceeae24bfbbba46974c57038badf3ddc9fd493] 2014-11-21  Vladimir Makarov  <vmakarov@redhat.com>
+git bisect skip d3ceeae24bfbbba46974c57038badf3ddc9fd493
+# skip: [61a2791bc20a058136ef4bfb1df848f8597a4e0a] Add file I missed.  Whoops.
+git bisect skip 61a2791bc20a058136ef4bfb1df848f8597a4e0a
+# skip: [d2468d1ba4a238220c55b124ce6b78e3d87a2e88] 	PR target/63534 gcc/ 	* config/i386/i386.c (ix86_expand_split_stack_prologue): Make 	__morestack local.
+git bisect skip d2468d1ba4a238220c55b124ce6b78e3d87a2e88
+# skip: [1f465ccdc444e0324fdf469ec2af2a62abcf8af1] Fix int vs bool issue in jit.dg/test-arith-overflow.c
+git bisect skip 1f465ccdc444e0324fdf469ec2af2a62abcf8af1
+# skip: [668bfa53cfb345bf60c5812f37b838a8a3f73c7a] 	PR target/63947 	* config/i386/i386.c (put_condition_code) <case LTU, case GEU>: 	Output "b" and "nb" suffix for FP mode.
+git bisect skip 668bfa53cfb345bf60c5812f37b838a8a3f73c7a
+# skip: [6c48b9a3f3df1c142afab9cbc7b1b3d22dad3b2d] 	* gimple-fold.c (fold_gimple_assign): Do not intorudce referneces 	to BUILT_IN_UNREACHABLE.
+git bisect skip 6c48b9a3f3df1c142afab9cbc7b1b3d22dad3b2d
+# skip: [26c558e1db46a23fc6fb2421bc2189aa912cdf5d] 2014-10-17  Richard Biener  <rguenther@suse.de>
+git bisect skip 26c558e1db46a23fc6fb2421bc2189aa912cdf5d
+# skip: [2d63955f9f7ea71a892d7b5790acdd52e2da37b2] get_last_bb_insn returns an rtx_insn
+git bisect skip 2d63955f9f7ea71a892d7b5790acdd52e2da37b2
+# skip: [c9f03f9b6e7a888a270638c07190513189f8c33d] [gcc] 2014-11-17  Michael Meissner  <meissner@linux.vnet.ibm.com> 	    Ulrich Weigand  <Ulrich.Weigand@de.ibm.com>
+git bisect skip c9f03f9b6e7a888a270638c07190513189f8c33d
+# skip: [831e913e4e779d0a3d7832ef67d85e551ca84d89] print-rtl.c: Use rtx_insn for various debug_ functions
+git bisect skip 831e913e4e779d0a3d7832ef67d85e551ca84d89
+# skip: [3ddbf961e14758870df59ce7bc94b093d30bffc9] 	* constexpr.c (cxx_eval_builtin_function_call): Use 	fold_builtin_call_array.
+git bisect skip 3ddbf961e14758870df59ce7bc94b093d30bffc9
+# skip: [61af80a9bb0e78fb858b9eda66e1ab5f83a2cb5b] RTEMS: Use MULTILIB_REQUIRED for ARM
+git bisect skip 61af80a9bb0e78fb858b9eda66e1ab5f83a2cb5b
+# skip: [2093b5a044849148c0721ced9db1facbe630dbcc] 2014-10-24  Christophe Lyon  <christophe.lyon@linaro.org>
+git bisect skip 2093b5a044849148c0721ced9db1facbe630dbcc
+# skip: [802dfe6525ecd530dba49dc95ca90c87217b781e] gcc/ 	* combine.c: Include rtl-iter.h. 	(unmentioned_reg_p_1): Delete. 	(unmentioned_reg_p): Use FOR_EACH_SUBRTX rather than for_each_rtx. 	Don't handle null rtxes.
+git bisect skip 802dfe6525ecd530dba49dc95ca90c87217b781e
+# skip: [24718ddbaaae09d0b69f9aef0f90161e9eb4d623] gcc/ 	* config/mips/mips.c (r10k_needs_protection_p_call): Take a const_rtx 	and return a bool.  Iterate over all subrtxes here. 	(r10k_needs_protection_p): Update accordingly.
+git bisect skip 24718ddbaaae09d0b69f9aef0f90161e9eb4d623
+# skip: [d295d3d2fa64f4edfef958362dcf99f6a82396fe] 	* testsuite/21_strings/basic_string/modifiers/64422.cc: Fix copyright 	date.
+git bisect skip d295d3d2fa64f4edfef958362dcf99f6a82396fe
+

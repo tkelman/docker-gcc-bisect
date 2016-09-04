@@ -2,6 +2,9 @@
 set -e
 git log -1
 git bisect log
+if [ -e gcc/ipa-polymorphic-call.c ]; then
+git show 41a1ab48345ce2dc07a31c88ddeec56ca75cce95 gcc/ipa-polymorphic-call.c | git apply || true
+fi
 cd /opt/gcc/build
 rm -rf /opt/gcc/build/* /opt/gcc/usr
 /opt/gcc/src/configure --prefix=/opt/gcc/usr \
@@ -12,6 +15,9 @@ make -j`nproc` > gcc-build.log 2>&1 || exit 125
 make install > gcc-inst.log 2>&1 || exit 125
 export PATH=/opt/gcc/usr/bin:$PATH
 
+cd /opt/gcc/src
+git diff | git apply -R || true
+
 cd /opt/llvm/build
 rm -rf /opt/llvm/build/*
 mkdir -p Release+Asserts/bin
@@ -19,6 +25,6 @@ cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll Release+Asserts/bin
 cp /opt/gcc/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin
 /opt/llvm/llvm-3.7.1.src/configure --host=i686-w64-mingw32 \
   --enable-optimized --enable-targets=host > llvm-conf.log 2>&1 || exit 125
-make -j`nproc` > llvm-build.log 2>&1 || exit 125
+make -j`nproc` ONLY_TOOLS=opt > llvm-build.log || exit 0
 wine /opt/llvm/build/Release+Asserts/bin/opt.exe -slp-vectorizer \
-  -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
+  -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll || exit 1

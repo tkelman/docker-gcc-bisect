@@ -1,0 +1,40 @@
+# this run considered a failure to build LLVM as bad
+# it identified a gtest macro expansion issue in LLVM's unit tests
+
+git bisect start
+# bad: [c1243bb806c7edb2969569f880e0922f9b010f00] Daily bump.
+git bisect bad c1243bb806c7edb2969569f880e0922f9b010f00
+# good: [d3191480f376c78031aa1ca0f6a54f4cf67f4268] Mark as release
+git bisect good d3191480f376c78031aa1ca0f6a54f4cf67f4268
+# good: [ec86f0be138e2f976eb8f249bbcc82246586e6a0] 	PR other/59055 	* doc/bugreport.texi (Bugs): Remove nodes pointing to the 	nirvana. 	* doc/gcc.texi (Service): Update description in the @menu 	* doc/invoke.texi (Option Summary): Remove misplaced and 	duplicated @menu.
+git bisect good ec86f0be138e2f976eb8f249bbcc82246586e6a0
+# bad: [0db094ac080f7fa61eda15f53020fa020e7e704a] Add test cases for all the new cilk errors
+git bisect bad 0db094ac080f7fa61eda15f53020fa020e7e704a
+# bad: [7a1febef2e54b941910bf8952fedb6d0c92d800a] 2014-07-30  Robert Dewar  <dewar@adacore.com>
+git bisect bad 7a1febef2e54b941910bf8952fedb6d0c92d800a
+# good: [bb195fbb894d692f917f7823659783d30d7e591b] 2014-05-09  David Wohlferd <LimeGreenSocks@yahoo.com> 	Andrew Haley <aph@redhat.com> 	Richard Sandiford <rdsandiford@googlemail.com>
+git bisect good bb195fbb894d692f917f7823659783d30d7e591b
+# good: [de56f7e447265acedf27f92ee9bcfe5585ccf49f] 	* semantics.c (simplify_aggr_init_expr): Remove remnants of 	2014-04-11 change.
+git bisect good de56f7e447265acedf27f92ee9bcfe5585ccf49f
+# good: [6fb57d296a0599fe5ed6150f3c2baf2de9a4c0c7] /cp 2014-07-17  Paolo Carlini  <paolo.carlini@oracle.com>
+git bisect good 6fb57d296a0599fe5ed6150f3c2baf2de9a4c0c7
+# good: [1cb5da9b426e9888ac7fa653b4cf6f474a6272f8] gcc/
+git bisect good 1cb5da9b426e9888ac7fa653b4cf6f474a6272f8
+# bad: [39c5c079c8a6d2c63c28e8b7a913b5abeac0450b] 2014-07-29  Jerome Lambourg  <lambourg@adacore.com>
+git bisect bad 39c5c079c8a6d2c63c28e8b7a913b5abeac0450b
+# bad: [fa3cff4f9e16503cc1c2030880e03e741ce55b35] Daily bump.
+git bisect bad fa3cff4f9e16503cc1c2030880e03e741ce55b35
+# good: [86f64bd9b87fd6ed7a0b653aac80cb1ba2c338a0] cp/
+git bisect good 86f64bd9b87fd6ed7a0b653aac80cb1ba2c338a0
+# good: [f85b4ce04ad9bfe0d6b153b900b1285513c6281a] Follow up to r213079.
+git bisect good f85b4ce04ad9bfe0d6b153b900b1285513c6281a
+# good: [f4a2489c933114506e2e5e2c7ce574ad1a212313] gcc/testsuite/ 	* gcc.target/i386/avx512f-vbroadcastf64x4-2.c: Fix the uninitialized 	variable problem.
+git bisect good f4a2489c933114506e2e5e2c7ce574ad1a212313
+# good: [ab0c4d2eb2f6ebde5e397ab479f7a955d62e6106] Add moxiebox target.
+git bisect good ab0c4d2eb2f6ebde5e397ab479f7a955d62e6106
+# bad: [8cc0edb699a447d6db1ec53dddced85914d366b7] 	* MAINTAINERS: Remove my MIPS maintainer entry.
+git bisect bad 8cc0edb699a447d6db1ec53dddced85914d366b7
+# bad: [2e82cf2c6076fa6cf9a23ba5b58b9be5f97a10a2] 	PR c/61861 	* macro.c (builtin_macro): Add location parameter.  Set 	location of builtin macro to the expansion point. 	(enter_macro_context): Pass location to builtin_macro.
+git bisect bad 2e82cf2c6076fa6cf9a23ba5b58b9be5f97a10a2
+# first bad commit: [2e82cf2c6076fa6cf9a23ba5b58b9be5f97a10a2] 	PR c/61861 	* macro.c (builtin_macro): Add location parameter.  Set 	location of builtin macro to the expansion point. 	(enter_macro_context): Pass location to builtin_macro.
+

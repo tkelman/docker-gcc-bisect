@@ -1,0 +1,30 @@
+# this applied a patch to avoid an internal compiler error
+# and considered a failure to build llvm as good
+
+git bisect start
+# bad: [4b84d7cbdd6b2ba6595e7058e782995687f0d69b] Update comments.
+git bisect bad 4b84d7cbdd6b2ba6595e7058e782995687f0d69b
+# good: [0db094ac080f7fa61eda15f53020fa020e7e704a] Add test cases for all the new cilk errors
+git bisect good 0db094ac080f7fa61eda15f53020fa020e7e704a
+# bad: [2008009a6d82e94404a9f14dfc96405d5d46338e] 	* MAINTAINERS (Write After Approval): Revert my previous change.
+git bisect bad 2008009a6d82e94404a9f14dfc96405d5d46338e
+# bad: [693010ae5299a12de4a37503f463e1660d910c25] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+git bisect bad 693010ae5299a12de4a37503f463e1660d910c25
+# good: [1fa1be9b502e7921f99be2d737b7c0f21cc0bc24] Daily bump.
+git bisect good 1fa1be9b502e7921f99be2d737b7c0f21cc0bc24
+# good: [44ee4fad4bd532743c3b919d05988831f47f62db] 2014-11-13  Dominique Dhumieres  <dominiq@lps.ens.fr>
+git bisect good 44ee4fad4bd532743c3b919d05988831f47f62db
+# good: [84e41970756d1c3882aaf6a9368c7f282b294250] Define C++11 version of std::ios_base::failure.
+git bisect good 84e41970756d1c3882aaf6a9368c7f282b294250
+# good: [f3d688fbc4887b4e99d27a35d077d731f51303e7] 	* libgomp.c/examples-4/e.54.2.c (main): Use N / 8 instead 	of 32 as block_size. 	* libgomp.fortran/examples-4/e.54.2.f90 (e_54_1): Use n / 8 	instead of 32 as block_size.
+git bisect good f3d688fbc4887b4e99d27a35d077d731f51303e7
+# good: [0c368492c85091d7b90cade269c45aba4cee77f5] 	* tree-ssa.dce.c (eliminate_unnecessary_stmts): Eliminate 	IFN_GOMP_SIMD_LANE without lhs as useless.
+git bisect good 0c368492c85091d7b90cade269c45aba4cee77f5
+# good: [9bfdb7bcca4eecc4ed5c55c1c943f07e82fb642d] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+git bisect good 9bfdb7bcca4eecc4ed5c55c1c943f07e82fb642d
+# bad: [044726588bc9d9d13e41e5380151545d979d3a87] 2014-11-14  Vladimir Makarov  <vmakarov@redhat.com>
+git bisect bad 044726588bc9d9d13e41e5380151545d979d3a87
+# bad: [245ab191eaef919a787c44b8e9ec808e552e821c] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+git bisect bad 245ab191eaef919a787c44b8e9ec808e552e821c
+# first bad commit: [245ab191eaef919a787c44b8e9ec808e552e821c] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+

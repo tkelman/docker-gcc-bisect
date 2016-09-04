@@ -1,0 +1,42 @@
+# this considered a failure to build LLVM as good, identified the
+# switchover point from internal compiler error to crash in opt.exe
+
+git bisect start
+# bad: [c1243bb806c7edb2969569f880e0922f9b010f00] Daily bump.
+git bisect bad c1243bb806c7edb2969569f880e0922f9b010f00
+# good: [d3191480f376c78031aa1ca0f6a54f4cf67f4268] Mark as release
+git bisect good d3191480f376c78031aa1ca0f6a54f4cf67f4268
+# good: [ec86f0be138e2f976eb8f249bbcc82246586e6a0] 	PR other/59055 	* doc/bugreport.texi (Bugs): Remove nodes pointing to the 	nirvana. 	* doc/gcc.texi (Service): Update description in the @menu 	* doc/invoke.texi (Option Summary): Remove misplaced and 	duplicated @menu.
+git bisect good ec86f0be138e2f976eb8f249bbcc82246586e6a0
+# good: [0db094ac080f7fa61eda15f53020fa020e7e704a] Add test cases for all the new cilk errors
+git bisect good 0db094ac080f7fa61eda15f53020fa020e7e704a
+# bad: [9a521e17fa8e0dcaeb60fcb4b202e3e8627c8047] Code clean ups.
+git bisect bad 9a521e17fa8e0dcaeb60fcb4b202e3e8627c8047
+# good: [c97e413fb43401764240df369a75bb409a97289d] Rotate libstdc++-v3/ChangeLog
+git bisect good c97e413fb43401764240df369a75bb409a97289d
+# good: [20aad5bad6bb88ceeea14eb560ab844f67be0f4c] 	PR c/63307 	* cilk.c (fill_decls_vec): Only put decls into vector v. 	(compare_decls): Fix up formatting.
+git bisect good 20aad5bad6bb88ceeea14eb560ab844f67be0f4c
+# skip: [97c9021f0e10609eea1a4581cfbb323c165b0096] 	* builtins.def (DEF_BUILTIN_CHKP): Define if not defined. 	(DEF_LIB_BUILTIN_CHKP, DEF_EXT_LIB_BUILTIN_CHKP): Redefine. 	(DEF_CHKP_BUILTIN): Define using DEF_BUILTIN_CHKP instead 	of DEF_BUILTIN. 	(BUILT_IN_MEMCPY, BUILT_IN_MEMMOVE, BUILT_IN_MEMSET, BUILT_IN_STRCAT, 	BUILT_IN_STRCHR, BUILT_IN_STRCPY, BUILT_IN_STRLEN): Use 	DEF_LIB_BUILTIN_CHKP macro instead of DEF_LIB_BUILTIN. 	(BUILT_IN_MEMCPY_CHK, BUILT_IN_MEMMOVE_CHK, BUILT_IN_MEMPCPY_CHK, 	BUILT_IN_MEMPCPY, BUILT_IN_MEMSET_CHK, BUILT_IN_STPCPY_CHK, 	BUILT_IN_STPCPY, BUILT_IN_STRCAT_CHK, BUILT_IN_STRCPY_CHK): Use 	DEF_EXT_LIB_BUILTIN_CHKP macro instead of DEF_EXT_LIB_BUILTIN. 	* tree-core.h (enum built_in_function): In between 	BEGIN_CHKP_BUILTINS and END_CHKP_BUILTINS only define enum values 	for builtins that use DEF_BUILTIN_CHKP macro.
+git bisect skip 97c9021f0e10609eea1a4581cfbb323c165b0096
+# skip: [1b60fb1d46dea60f9e6f8218edbb7861f8dfbb02] jit: fix typo in docs
+git bisect skip 1b60fb1d46dea60f9e6f8218edbb7861f8dfbb02
+# good: [dab7110f682e5b3151edd9f8ed6599199c1b2dde] Fix 404 in "Show Source" in jit docs
+git bisect good dab7110f682e5b3151edd9f8ed6599199c1b2dde
+# bad: [1d524ff75f88a700cb457f1ab1caa2746cfe8dfc] 	PR c++/64956 	* c-opts.c (c_common_post_options): Change flag_abi_version from 0 	to the current highest version. 	* c-cppbuiltin.c (c_cpp_builtins): Assert that it isn't 0.
+git bisect bad 1d524ff75f88a700cb457f1ab1caa2746cfe8dfc
+# bad: [205b560197765bc26a917f06a2bc924e9827c591] 2015-02-10  Richard Biener  <rguenther@suse.de>
+git bisect bad 205b560197765bc26a917f06a2bc924e9827c591
+# good: [dfd3a36192c36be97329c97a035a39e742862bf8] Daily bump.
+git bisect good dfd3a36192c36be97329c97a035a39e742862bf8
+# bad: [87a9c1b6624ae11321799e7c9aba4a7b47567d5d] 	* ipa-devirt.c (odr_types_equivalent_p): Fix formating. 	(add_type_duplicate): Fix comparison of BINFOs.
+git bisect bad 87a9c1b6624ae11321799e7c9aba4a7b47567d5d
+# good: [a33006b6ce06011f01fc0e6e11e348f2f495759d] 	* gcc.dg/tree-ssa/ssa-dom-cse-2.c: Xfail for alpha*-*-*. 	* gcc.dg/tree-ssa/pr42585.c: Xfail scan-tree-dump-times for alpha*-*-*.
+git bisect good a33006b6ce06011f01fc0e6e11e348f2f495759d
+# good: [2f4777f3a5642980e54dbae3c6a0b62df9f2163a] [Obvious][Testsuite] Remove extraneous target from gcc.target/arm/macro_defs0.c
+git bisect good 2f4777f3a5642980e54dbae3c6a0b62df9f2163a
+# good: [b627b020b0237ded188fe0a3bf8c2a8cad97251c] 	PR c++/64899 	* init.c (build_vec_init): Handle default-initialized array with 	constexpr default constructor.
+git bisect good b627b020b0237ded188fe0a3bf8c2a8cad97251c
+# bad: [41a1ab48345ce2dc07a31c88ddeec56ca75cce95] 	* ipa-polymorphic-call.c (ipa_polymorphic_call_context): Avoid ICE 	on getting VOID pointer.
+git bisect bad 41a1ab48345ce2dc07a31c88ddeec56ca75cce95
+# first bad commit: [41a1ab48345ce2dc07a31c88ddeec56ca75cce95] 	* ipa-polymorphic-call.c (ipa_polymorphic_call_context): Avoid ICE 	on getting VOID pointer.
+
