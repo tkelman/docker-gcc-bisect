@@ -1,0 +1,35 @@
+git bisect start
+# bad: [1a535b3ca8b16ae43de4bc87e92b6bbc52b58ebc] Daily bump.
+git bisect bad 1a535b3ca8b16ae43de4bc87e92b6bbc52b58ebc
+# good: [d3191480f376c78031aa1ca0f6a54f4cf67f4268] Mark as release
+git bisect good d3191480f376c78031aa1ca0f6a54f4cf67f4268
+# good: [ec86f0be138e2f976eb8f249bbcc82246586e6a0] 	PR other/59055 	* doc/bugreport.texi (Bugs): Remove nodes pointing to the 	nirvana. 	* doc/gcc.texi (Service): Update description in the @menu 	* doc/invoke.texi (Option Summary): Remove misplaced and 	duplicated @menu.
+git bisect good ec86f0be138e2f976eb8f249bbcc82246586e6a0
+# good: [325b86d0dea618e99da02d94fe932e386fc28912] Fix some of the existing Cilk tests for the new errors.
+git bisect good 325b86d0dea618e99da02d94fe932e386fc28912
+# bad: [382167e867242a237c2b7784de32d7737936ca33] 2015-02-20  Olivier Hainque  <hainque@adacore.com>
+git bisect bad 382167e867242a237c2b7784de32d7737936ca33
+# bad: [fb96fbb3b11c5cae3c8516807de24e0037c6cb26] 	PR libstdc++/64438 	* testsuite/21_strings/basic_string/numeric_conversions/char/dr1261.cc: 	Revert removal of dg-require-string-conversions. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stod.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stof.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stoi.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stol.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stold.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stoll.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/stoul.cc: 	Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/ 	stoull.cc: Likewise. 	* testsuite/21_strings/basic_string/numeric_conversions/char/ 	to_string.cc: Likewise.
+git bisect bad fb96fbb3b11c5cae3c8516807de24e0037c6cb26
+# bad: [211a1694840f9f0ad47e8d10fc44a53241993bf6] gcc/ 	* lto-wrapper.c (run_gcc): Set have_lto and have_offload if at least one 	file contains sections with LTO and offload IR, respectively.
+git bisect bad 211a1694840f9f0ad47e8d10fc44a53241993bf6
+# bad: [7c6060986fe8a8cde0242471744d01ba02b1a667] 	PR sanitizer/62132 	* c-c++-common/asan/misalign-1.c: Pass -fno-omit-frame-pointer on 	darwin, adjust dg-output. 	* c-c++-common/asan/misalign-2.c: Likewise.
+git bisect bad 7c6060986fe8a8cde0242471744d01ba02b1a667
+# bad: [5797c9aa91b4ddbe113ebd7bf16ef11bf0d9dc17] [gcc] 2014-11-14  Michael Meissner  <meissner@linux.vnet.ibm.com>
+git bisect bad 5797c9aa91b4ddbe113ebd7bf16ef11bf0d9dc17
+# good: [2bef00f6c5beb4563d4e8f5834a5a1e0955f07d9] 2014-11-13  Manuel López-Ibáñez  <manu@gcc.gnu.org>
+git bisect good 2bef00f6c5beb4563d4e8f5834a5a1e0955f07d9
+# good: [e6b5ae8a7bb21c31c3058da8bc84e23b12e552a6] Daily bump.
+git bisect good e6b5ae8a7bb21c31c3058da8bc84e23b12e552a6
+# good: [4e1b3545e6ed90648f1a1de1ad251a319f67d21f] 2014-11-14  Richard Biener  <rguenther@suse.de>
+git bisect good 4e1b3545e6ed90648f1a1de1ad251a319f67d21f
+# good: [1e937a2e7a008f40c13678f3326bb617fa39b194] [Vectorizer] Tidy up vect_create_epilog / use_scalar_result
+git bisect good 1e937a2e7a008f40c13678f3326bb617fa39b194
+# good: [d44c11097a0593e23dd7c055dbb23c84f68a2e89] 	* doc/install.texi (--with-diagnostics-color=): Document.
+git bisect good d44c11097a0593e23dd7c055dbb23c84f68a2e89
+# bad: [245ab191eaef919a787c44b8e9ec808e552e821c] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+git bisect bad 245ab191eaef919a787c44b8e9ec808e552e821c
+# good: [9bfdb7bcca4eecc4ed5c55c1c943f07e82fb642d] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+git bisect good 9bfdb7bcca4eecc4ed5c55c1c943f07e82fb642d
+# first bad commit: [245ab191eaef919a787c44b8e9ec808e552e821c] 2014-11-14  Martin Jambor  <mjambor@suse.cz>
+
