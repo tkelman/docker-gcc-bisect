@@ -15,7 +15,7 @@ RUN git clone git://github.com/gcc-mirror/gcc \
 
 WORKDIR /opt/gcc/src
 ADD bisect-run.sh .
-RUN git bisect start && ./bisect-run.sh || git bisect bad && \
-    git checkout gcc-4_9-branch && ./bisect-run.sh && git bisect good && \
-    git bisect run ./bisect-run.sh && git bisect log && \
-    git bisect log | curl -F 'sprunge=<-' http://sprunge.us
+#RUN git bisect start && ./bisect-run.sh #|| git bisect bad && \
+#    git checkout gcc-4_9-branch && ./bisect-run.sh && git bisect good && \
+#    git bisect run ./bisect-run.sh && git bisect log && \
+#    git bisect log | curl -F 'sprunge=<-' http://sprunge.us
