@@ -40,13 +40,24 @@ RUN cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
     -DCMAKE_VERBOSE_MAKEFILE=TRUE -G Ninja
 RUN ninja -v opt
 
+RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
+    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll > \
+    /opt/llvm/build-good/good-output.txt
 
+# make sure clang-format is available
+RUN zypper -n install clang
 
+WORKDIR /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize
+RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
+    echo 'cd /opt/llvm/build-good && ninja opt' >> script.sh && \
+    echo 'cd /opt/llvm/build-bad && ninja opt' >> script.sh && \
+    echo 'cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize' >> script.sh && \
+    echo 'rm -rf /tmp/.wine*' >> script.sh && \
+    echo 'diff /opt/llvm/build-good/good-output.txt <(wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
+    echo '! wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
+RUN cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize && \
+    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp
 
-
-#RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
+#RUN wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer \
 #    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
-
-RUN wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer \
-    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
 
