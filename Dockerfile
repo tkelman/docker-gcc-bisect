@@ -15,8 +15,8 @@ RUN mkdir -p /opt/llvm/build-good /opt/llvm/build-bad && cd /opt/llvm && \
 WORKDIR /opt/llvm/build-good
 RUN rm -rf /opt/llvm/build-good/* && mkdir -p bin && \
     cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll bin && \
-    echo 'set(CMAKE_C_COMPILER cc)' > NATIVE.cmake && \
-    echo 'set(CMAKE_CXX_COMPILER c++)' >> NATIVE.cmake
+    echo 'set(CMAKE_C_COMPILER clang)' > NATIVE.cmake && \
+    echo 'set(CMAKE_CXX_COMPILER clang++)' >> NATIVE.cmake
 RUN cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
     -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host \
     -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc \
@@ -30,8 +30,8 @@ RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
 WORKDIR /opt/llvm/build-bad
 RUN rm -rf /opt/llvm/build-bad/* && mkdir -p bin && \
     cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll bin && \
-    echo 'set(CMAKE_C_COMPILER cc)' > NATIVE.cmake && \
-    echo 'set(CMAKE_CXX_COMPILER c++)' >> NATIVE.cmake
+    echo 'set(CMAKE_C_COMPILER clang)' > NATIVE.cmake && \
+    echo 'set(CMAKE_CXX_COMPILER clang++)' >> NATIVE.cmake
 RUN cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
     -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host \
     -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc \
