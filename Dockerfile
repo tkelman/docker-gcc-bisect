@@ -53,6 +53,8 @@ RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
     echo 'diff /opt/llvm/build-good/good-output.txt <(timeout 20 wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
     echo '! timeout 20 wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
 RUN cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize && \
-    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
-    cat SLPVectorizer.cpp
+    creduce --verbose --timing ./script.sh SLPVectorizer.cpp
+#    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
+#    cat SLPVectorizer.cpp
 
+# delta takes a few hours, but it does get down to about 1000 lines after the first run
