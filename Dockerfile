@@ -6,7 +6,7 @@ RUN zypper addrepo obs://Emulators/openSUSE_Leap_42.1 Emulators
 RUN zypper addrepo obs://devel:tools/openSUSE_Leap_42.1 develtools
 # wine depends on samba which depends on krb5 which conflicts with krb5-mini
 RUN zypper -n --gpg-auto-import-keys install git make flex tar curl wine -krb5-mini \
-    mingw32-cross-gcc-c++ mingw32-libstdc++6 gcc-c++ cmake ninja creduce
+    mingw32-cross-gcc-c++ mingw32-libstdc++6 clang cmake ninja creduce
 
 # Download sources
 RUN mkdir -p /opt/llvm/build-good /opt/llvm/build-bad && cd /opt/llvm && \
@@ -44,20 +44,15 @@ RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
     -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll > \
     /opt/llvm/build-good/good-output.txt
 
-# make sure clang-format is available
-RUN zypper -n install clang
-
 WORKDIR /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize
 RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
     echo 'cd /opt/llvm/build-good && ninja opt' >> script.sh && \
     echo 'cd /opt/llvm/build-bad && ninja opt' >> script.sh && \
     echo 'cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize' >> script.sh && \
     echo 'rm -rf /tmp/.wine*' >> script.sh && \
-    echo 'diff /opt/llvm/build-good/good-output.txt <(wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
-    echo '! wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
+    echo 'diff /opt/llvm/build-good/good-output.txt <(timeout 20 wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
+    echo '! timeout 20 wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
 RUN cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize && \
-    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp
-
-#RUN wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer \
-#    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
+    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
+    cat SLPVectorizer.cpp
 
