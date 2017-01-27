@@ -44,6 +44,11 @@ RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
     -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll > \
     /opt/llvm/build-good/good-output.txt
 
+RUN touch /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize/SLPVectorizer.cpp && \
+    cmd=$(ninja -v opt | grep '\[2/4\]' | sed 's|\[2/4\]||') && \
+    $cmd -save-temps && \
+    cp SLPVectorizer.ii /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize/SLPVectorizer.cpp
+
 WORKDIR /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize
 RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
     echo 'cd /opt/llvm/build-good && ninja opt' >> script.sh && \
@@ -53,6 +58,7 @@ RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
     echo 'diff /opt/llvm/build-good/good-output.txt <(timeout 20 wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
     echo '! timeout 20 wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
 RUN cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize && \
-    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
-    cat SLPVectorizer.cpp
+    creduce --verbose --timing ./script.sh SLPVectorizer.cpp
+#    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
+#    cat SLPVectorizer.cpp
 
