@@ -368,155 +368,8 @@ pushd /opt/llvm/build-bad/NATIVE && /usr/bin/cmake -G Ninja -DCMAKE_TOOLCHAIN_FI
 pushd /opt/llvm/build-bad/NATIVE && /usr/bin/cmake --build . --target llvm-tblgen --config Release && popd
 pushd /opt/llvm/build-bad/include/llvm/IR && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-intrinsic -I /opt/llvm/llvm-3.7.1.src/include/llvm/IR -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/include/llvm/IR/Intrinsics.td -o /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp && popd
 pushd /opt/llvm/build-bad/include/llvm/IR && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen && popd
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/AsmWriter.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/AsmWriter.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/AsmWriter.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/AsmWriter.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Attributes.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Attributes.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Attributes.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Attributes.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/AutoUpgrade.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/AutoUpgrade.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/AutoUpgrade.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/AutoUpgrade.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/BasicBlock.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/BasicBlock.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/BasicBlock.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/BasicBlock.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Comdat.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Comdat.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Comdat.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Comdat.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/ConstantFold.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/ConstantFold.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/ConstantFold.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/ConstantFold.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/ConstantRange.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/ConstantRange.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/ConstantRange.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/ConstantRange.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Constants.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Constants.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Constants.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Constants.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Core.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Core.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Core.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Core.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DIBuilder.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DIBuilder.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DIBuilder.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DIBuilder.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DataLayout.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DataLayout.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DataLayout.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DataLayout.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DebugInfo.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DebugInfo.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DebugInfo.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DebugInfo.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DebugInfoMetadata.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DebugInfoMetadata.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DebugInfoMetadata.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DebugInfoMetadata.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DebugLoc.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DebugLoc.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DebugLoc.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DebugLoc.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticInfo.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticInfo.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticInfo.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DiagnosticInfo.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticPrinter.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticPrinter.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticPrinter.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/DiagnosticPrinter.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Dominators.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Dominators.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Dominators.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Dominators.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Function.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Function.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Function.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Function.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/GCOV.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/GCOV.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/GCOV.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/GCOV.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/GVMaterializer.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/GVMaterializer.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/GVMaterializer.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/GVMaterializer.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Globals.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Globals.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Globals.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Globals.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/IRBuilder.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/IRBuilder.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/IRBuilder.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/IRBuilder.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/IRPrintingPasses.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/IRPrintingPasses.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/IRPrintingPasses.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/IRPrintingPasses.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/InlineAsm.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/InlineAsm.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/InlineAsm.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/InlineAsm.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Instruction.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Instruction.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Instruction.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Instruction.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Instructions.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Instructions.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Instructions.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Instructions.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/IntrinsicInst.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/IntrinsicInst.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/IntrinsicInst.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/IntrinsicInst.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/LLVMContext.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/LLVMContext.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/LLVMContext.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/LLVMContext.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/LLVMContextImpl.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/LLVMContextImpl.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/LLVMContextImpl.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/LLVMContextImpl.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/LegacyPassManager.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/LegacyPassManager.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/LegacyPassManager.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/LegacyPassManager.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/MDBuilder.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/MDBuilder.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/MDBuilder.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/MDBuilder.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Mangler.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Mangler.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Mangler.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Mangler.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Metadata.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Metadata.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Metadata.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Metadata.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/MetadataTracking.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/MetadataTracking.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/MetadataTracking.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/MetadataTracking.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Module.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Module.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Module.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Module.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Operator.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Operator.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Operator.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Operator.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Pass.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Pass.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Pass.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Pass.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/PassManager.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/PassManager.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/PassManager.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/PassManager.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/PassRegistry.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/PassRegistry.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/PassRegistry.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/PassRegistry.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Statepoint.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Statepoint.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Statepoint.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Statepoint.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Type.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Type.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Type.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Type.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/TypeFinder.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/TypeFinder.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/TypeFinder.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/TypeFinder.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Use.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Use.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Use.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Use.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/User.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/User.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/User.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/User.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Value.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Value.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Value.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Value.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/ValueSymbolTable.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/ValueSymbolTable.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/ValueSymbolTable.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/ValueSymbolTable.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/ValueTypes.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/ValueTypes.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/ValueTypes.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/ValueTypes.cpp \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IR/CMakeFiles/LLVMCore.dir/Verifier.cpp \.obj -MF lib/IR/CMakeFiles/LLVMCore.dir/Verifier.cpp \.obj.d -o lib/IR/CMakeFiles/LLVMCore.dir/Verifier.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IR/Verifier.cpp \
-: && /usr/bin/cmake -E remove lib/libLLVMCore.a && /usr/bin/i686-w64-mingw32-ar cq lib/libLLVMCore.a  lib/IR/CMakeFiles/LLVMCore.dir/AsmWriter.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Attributes.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/AutoUpgrade.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/BasicBlock.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Comdat.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/ConstantFold.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/ConstantRange.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Constants.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Core.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DIBuilder.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DataLayout.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DebugInfo.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DebugInfoMetadata.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DebugLoc.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticInfo.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/DiagnosticPrinter.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Dominators.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Function.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/GCOV.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/GVMaterializer.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Globals.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/IRBuilder.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/IRPrintingPasses.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/InlineAsm.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Instruction.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Instructions.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/IntrinsicInst.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/LLVMContext.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/LLVMContextImpl.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/LegacyPassManager.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/MDBuilder.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Mangler.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Metadata.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/MetadataTracking.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Module.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Operator.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Pass.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/PassManager.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/PassRegistry.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Statepoint.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Type.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/TypeFinder.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Use.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/User.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Value.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/ValueSymbolTable.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/ValueTypes.cpp \.obj lib/IR/CMakeFiles/LLVMCore.dir/Verifier.cpp \.obj && /usr/bin/i686-w64-mingw32-ranlib lib/libLLVMCore.a && :
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IRReader -I/opt/llvm/llvm-3.7.1.src/lib/IRReader -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-lib/IRReader/CMakeFiles/LLVMIRReader.dir/IRReader.cpp \.obj -MF lib/IRReader/CMakeFiles/LLVMIRReader.dir/IRReader.cpp \.obj.d -o lib/IRReader/CMakeFiles/LLVMIRReader.dir/IRReader.cpp \.obj
-/opt/llvm/llvm-3.7.1.src/lib/IRReader/IRReader.cpp \
-: && /usr/bin/cmake -E remove lib/libLLVMIRReader.a && /usr/bin/i686-w64-mingw32-ar cq lib/libLLVMIRReader.a  lib/IRReader/CMakeFiles/LLVMIRReader.dir/IRReader.cpp \.obj && /usr/bin/i686-w64-mingw32-ranlib lib/libLLVMIRReader.a && :
+#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
+#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IRReader -I/opt/llvm/llvm-3.7.1.src/lib/IRReader -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
 #/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen/SelectionDAG -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
 #/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
 #/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen/AsmPrinter -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/AsmPrinter -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
@@ -1116,5 +969,54 @@ pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different 
 /opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG/ScheduleDAGVLIW.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG/TargetLowering.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG/TargetSelectionDAGInfo.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IRReader/IRReader.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/AsmWriter.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Attributes.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/AutoUpgrade.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/BasicBlock.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Comdat.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/ConstantFold.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/ConstantRange.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Constants.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Core.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DIBuilder.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DataLayout.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DebugInfo.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DebugInfoMetadata.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DebugLoc.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DiagnosticInfo.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/DiagnosticPrinter.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Dominators.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Function.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/GCOV.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/GVMaterializer.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Globals.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/IRBuilder.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/IRPrintingPasses.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/InlineAsm.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Instruction.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Instructions.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/IntrinsicInst.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/LLVMContext.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/LLVMContextImpl.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/LegacyPassManager.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/MDBuilder.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Mangler.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Metadata.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/MetadataTracking.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Module.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Operator.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Pass.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/PassManager.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/PassRegistry.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Statepoint.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Type.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/TypeFinder.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Use.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/User.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Value.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/ValueSymbolTable.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/ValueTypes.cpp \
+/opt/llvm/llvm-3.7.1.src/lib/IR/Verifier.cpp \
 -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG \
--o bin/opt.exe  -Wl,--major-image-version,0,--minor-image-version,0  lib/libLLVMCore.a lib/libLLVMIRReader.a lib/libLLVMSupport.a lib/libLLVMCore.a lib/libLLVMSupport.a -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+-o bin/opt.exe  -Wl,--major-image-version,0,--minor-image-version,0  lib/libLLVMSupport.a lib/libLLVMSupport.a -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
