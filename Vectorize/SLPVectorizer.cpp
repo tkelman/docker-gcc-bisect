@@ -1,4 +1,3 @@
-#include "llvm/ADT/MapVector.h"
 #include "llvm/ADT/PostOrderIterator.h"
 #include "llvm/ADT/SetVector.h"
 #include "llvm/Analysis/AliasAnalysis.h"
@@ -8,24 +7,7 @@
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/Support/Debug.h"
 using namespace llvm;
-#define SV_NAME "slp-vectorizer"
-static cl::opt<int>
-    SLPCostThreshold("slp-threshold", cl::init(0), cl::Hidden,
-                     cl::desc("Only vectorize if you gain more than this "
-                              "number "));
-static cl::opt<bool>
-ShouldVectorizeHor("slp-vectorize-hor", cl::init(false), cl::Hidden,
-    cl::desc(
-        "Attempt to vectorize horizontal reductions feeding into a store"));
 namespace {
-static bool InTreeUserNeedToExtract(Value *Scalar, Instruction *UserInst,
-                                    TargetLibraryInfo *TLI) {
-  unsigned Opcode = UserInst->getOpcode();
-  switch (Opcode) {
-  case Instruction::Load: {
-  }
-  }
-}
 class BoUpSLP {
 public:
   typedef SmallVector<Value *, 8> ValueList;
@@ -35,22 +17,14 @@ public:
       : NumLoadsWantToKeepOrder(0), NumLoadsWantToChangeOrder(0), F(Func),
         Builder(Se->getContext()) {
   }
-  int getTreeCost();
+  void getTreeCost();
   void buildTree(ArrayRef<Value *> Roots,
                  ArrayRef<Value *> UserIgnoreLst = None);
-  void deleteTree() {
-    for (auto &Iter : BlocksSchedules) {
-    }
-  }
   bool shouldReorder() const {
   }
   struct TreeEntry {
     ValueList Scalars;
   };
-  TreeEntry *newTreeEntry(ArrayRef<Value *> VL, bool Vectorized) {
-    if (Vectorized) {
-    }
-  }
   std::vector<TreeEntry> VectorizableTree;
   SmallDenseMap<Value*, int> ScalarToTreeEntry;
   struct ExternalUser {
@@ -58,18 +32,8 @@ public:
     int Lane;
   };
   typedef SmallVector<ExternalUser, 16> UserList;
-  bool isAliased(const MemoryLocation &Loc1, Instruction *Inst1,
-                 Instruction *Inst2) {
-    AliasCacheKey key = std::make_pair(Inst1, Inst2);
-    Optional<bool> &result = AliasCache[key];
-    if (result.hasValue()) {
-    }
-  }
-  typedef std::pair<Instruction *, Instruction *> AliasCacheKey;
-  DenseMap<AliasCacheKey, Optional<bool>> AliasCache;
   UserList ExternalUses;
   SetVector<Instruction *> GatherSeq;
-  SetVector<BasicBlock *> CSEBlocks;
   struct ScheduleData {
   };
   struct BlockScheduling {
@@ -77,16 +41,8 @@ public:
     }
     template <typename ReadyListType>
     void schedule(ScheduleData *SD, ReadyListType &ReadyList) {
-      ScheduleData *BundleMember = SD;
-      while (BundleMember) {
-      }
     }
-    void initScheduleData(Instruction *FromI, Instruction *ToI,
-                          ScheduleData *NextLoadStore);
-    struct ReadyList : SmallVector<ScheduleData *, 8> {
-    };
   };
-  MapVector<BasicBlock *, std::unique_ptr<BlockScheduling>> BlocksSchedules;
   int NumLoadsWantToKeepOrder;
   int NumLoadsWantToChangeOrder;
   Function *F;
@@ -102,23 +58,14 @@ void BoUpSLP::buildTree(ArrayRef<Value *> Roots,
     for (int Lane = 0, LE = Entry->Scalars.size(); Lane != LE; ++Lane) {
       Value *Scalar = Entry->Scalars[Lane];
       for (User *U : Scalar->users()) {
-        Instruction *UserInst = dyn_cast<Instruction>(U);
         if (ScalarToTreeEntry.count(U)) {
-          int Idx = ScalarToTreeEntry[U];
-          TreeEntry *UseEntry = &VectorizableTree[Idx];
-          Value *UseScalar = UseEntry->Scalars[0];
-          if (UseScalar != U ||
-              !InTreeUserNeedToExtract(Scalar, UserInst, TLI)) {
-          }
         }
       }
     }
   }
 }
-int BoUpSLP::getTreeCost() {
+void BoUpSLP::getTreeCost() {
   unsigned BundleWidth = VectorizableTree[0].Scalars.size();
-  for (unsigned i = 0, e = VectorizableTree.size(); i != e; ++i) {
-  }
   int ExtractCost = 0;
   for (UserList::iterator I = ExternalUses.begin(), E = ExternalUses.end();
        I != E; ++I) {
@@ -179,9 +126,7 @@ bool SLPVectorizer::tryToVectorizeList(ArrayRef<Value *> VL, BoUpSLP &R,
       Value *ReorderedOps[] = { Ops[1], Ops[0] };
       R.buildTree(ReorderedOps, None);
     }
-    int Cost = R.getTreeCost();
-    if (Cost < -SLPCostThreshold) {
-    }
+    R.getTreeCost();
   }
 }
 bool SLPVectorizer::tryToVectorize(BinaryOperator *V, BoUpSLP &R) {
@@ -193,46 +138,14 @@ bool SLPVectorizer::tryToVectorize(BinaryOperator *V, BoUpSLP &R) {
     }
   }
 }
-static Value *createRdxShuffleMask(unsigned VecLen, unsigned NumEltsToRdx,
-                                   bool IsPairwise, bool IsLeft,
-                                   IRBuilder<> &Builder) {
-}
 class HorizontalReduction {
-  SmallVector<Value *, 32> ReducedVals;
-  BinaryOperator *ReductionRoot;
-  unsigned ReductionOpcode;
-  unsigned ReduxWidth;
-  bool IsPairwiseReduction;
 public:
   bool matchAssociativeReduction(PHINode *Phi, BinaryOperator *B) {
-    assert((!Phi ||
-            std::find(Phi->op_begin(), Phi->op_end(), B) != Phi->op_end()) &&
-           "Thi phi needs to use the binary operator");
     SmallVector<std::pair<BinaryOperator *, unsigned>, 32> Stack;
     while (!Stack.empty()) {
     }
   }
   bool tryToReduce(BoUpSLP &V, TargetTransformInfo *TTI) {
-    unsigned NumReducedVals = ReducedVals.size();
-    unsigned i = 0;
-    for (; i < NumReducedVals - ReduxWidth + 1; i += ReduxWidth) {
-    }
-  }
-  Value *emitReduction(Value *VectorizedValue, IRBuilder<> &Builder) {
-    Value *TmpVec = VectorizedValue;
-    for (unsigned i = ReduxWidth / 2; i != 0; i >>= 1) {
-      if (IsPairwiseReduction) {
-        Value *RightMask =
-          createRdxShuffleMask(ReduxWidth, i, true, false, Builder);
-        Value *RightShuf = Builder.CreateShuffleVector(
-          TmpVec, UndefValue::get(TmpVec->getType()), (RightMask),
-                             "bin.rdx");
-        Value *UpperHalf =
-          createRdxShuffleMask(ReduxWidth, i, false, false, Builder);
-        Value *Shuf = Builder.CreateShuffleVector(
-          TmpVec, UndefValue::get(TmpVec->getType()), UpperHalf, "rdx.shuf");
-      }
-    }
   }
 };
 bool SLPVectorizer::vectorizeChainsInBlock(BasicBlock *BB, BoUpSLP &R) {
@@ -264,27 +177,18 @@ bool SLPVectorizer::vectorizeChainsInBlock(BasicBlock *BB, BoUpSLP &R) {
                tryToVectorize(BinOp, R))) {
           }
         }
-    if (ReturnInst *RI = dyn_cast<ReturnInst>(it))
-        if (BinaryOperator *BinOp =
-                dyn_cast<BinaryOperator>(RI->getOperand(0))) {
-        }
-    if (CmpInst *CI = dyn_cast<CmpInst>(it)) {
-      for (int i = 0; i < 2; ++i) {
-        if (BinaryOperator *BI = dyn_cast<BinaryOperator>(CI->getOperand(i))) {
-        }
-      }
+    if (dyn_cast<CmpInst>(it)) {
       SmallVector<Value *, 16> BuildVector;
       SmallVector<Value *, 16> BuildVectorOpds;
-      if (tryToVectorizeList(BuildVectorOpds, R, BuildVector)) {
-      }
+      tryToVectorizeList(BuildVectorOpds, R, BuildVector);
     }
   }
 }
 } // end anonymous namespace
 char SLPVectorizer::ID = 0;
 static const char lv_name[] = "SLP Vectorizer";
-INITIALIZE_PASS_BEGIN(SLPVectorizer, SV_NAME, lv_name, false, false)
-INITIALIZE_PASS_END(SLPVectorizer, SV_NAME, lv_name, false, false)
+INITIALIZE_PASS_BEGIN(SLPVectorizer, "slp-vectorizer", lv_name, false, false)
+INITIALIZE_PASS_END(SLPVectorizer, "slp-vectorizer", lv_name, false, false)
 namespace llvm {
 Pass *createSLPVectorizerPass() { return new SLPVectorizer(); }
 }
