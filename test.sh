@@ -3,8 +3,11 @@
   -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter \
   -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic \
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
-  -std=gnu++11 -O2 -DNDEBUG -fno-exceptions -fno-rtti -MMD -MT opt_singlefile.cpp \
-  -o opt_good.exe -fno-ipa-cp -Wl,--major-image-version,0,--minor-image-version,0 \
+  -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp -fno-ipa-cp \
+  -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
+  -o opt_good.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
   -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll .
@@ -22,7 +25,10 @@ define void @test(<4 x i32> %in, <4 x i32> %in2) {
   -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter \
   -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic \
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
-  -std=gnu++11 -O2 -DNDEBUG -fno-exceptions -fno-rtti -MMD -MT opt_singlefile.cpp \
+  -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp \
+  -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
   -o opt_bad.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
   -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
