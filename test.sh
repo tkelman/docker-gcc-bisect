@@ -6,6 +6,7 @@
   -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp -fno-ipa-cp \
   -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/tools/opt \
   -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
   -o opt_good.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
@@ -28,6 +29,7 @@ define void @test(<4 x i32> %in, <4 x i32> %in2) {
   -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp \
   -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/tools/opt \
   -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
   -o opt_bad.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
