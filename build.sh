@@ -39,7 +39,6 @@ popd
 /opt/llvm/llvm-3.7.1.src/tools/opt/NewPMDriver.cpp \
 /opt/llvm/llvm-3.7.1.src/tools/opt/PassPrinters.cpp \
 /opt/llvm/llvm-3.7.1.src/tools/opt/PrintSCC.cpp \
-/opt/llvm/llvm-3.7.1.src/tools/opt/opt.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/Passes/PassBuilder.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/ProfileData/InstrProf.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/ProfileData/InstrProfReader.cpp \
@@ -717,5 +716,6 @@ popd
 /opt/llvm/llvm-3.7.1.src/lib/Support/TimeValue.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/Support/Valgrind.cpp \
 /opt/llvm/llvm-3.7.1.src/lib/Support/Watchdog.cpp \
+/opt/llvm/llvm-3.7.1.src/tools/opt/opt.cpp \
 -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG \
--o bin/opt.exe  -Wl,--major-image-version,0,--minor-image-version,0 -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+-E -Wl,--major-image-version,0,--minor-image-version,0 -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 > opt_singlefile.cpp
