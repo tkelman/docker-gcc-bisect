@@ -9,7 +9,7 @@
   -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
 cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll .
 [[ "$(timeout 20 wine opt_good.exe -slp-vectorizer \
-  -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)" = \
+  -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)" =
 "; ModuleID = '/opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll'
 target datalayout = \"e-p:64:64:64-i1:8:8-i8:8:8-i16:16:16-i32:32:32-i64:64:64-f32:32:32-f64:64:64-v64:64:64-v128:128:128-a0:0:64-s0:64:64-f80:128:128-n8:16:32:64-S128\"
 target triple = \"x86_64-apple-macosx10.8.0\"
