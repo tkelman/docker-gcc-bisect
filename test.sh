@@ -6,7 +6,26 @@
   -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp -fno-ipa-cp \
   -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Utils \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/MCTargetDesc \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/InstPrinter \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Disassembler \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/AsmParser \
   -I/opt/llvm/llvm-3.7.1.src/tools/opt \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Passes \
+  -I/opt/llvm/llvm-3.7.1.src/lib/ProfileData \
+  -I/opt/llvm/llvm-3.7.1.src/lib/AsmParser \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Object \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Analysis \
+  -I/opt/llvm/llvm-3.7.1.src/lib/MC/MCDisassembler \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/ObjCARC \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/InstCombine \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Bitcode/Writer \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/AsmPrinter \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG \
+  -I/opt/llvm/llvm-3.7.1.src/lib/IR \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Support \
   -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
   -o opt_good.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
@@ -29,7 +48,26 @@ define void @test(<4 x i32> %in, <4 x i32> %in2) {
   -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp \
   -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Utils \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/MCTargetDesc \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/InstPrinter \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Disassembler \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/AsmParser \
   -I/opt/llvm/llvm-3.7.1.src/tools/opt \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Passes \
+  -I/opt/llvm/llvm-3.7.1.src/lib/ProfileData \
+  -I/opt/llvm/llvm-3.7.1.src/lib/AsmParser \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Object \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Analysis \
+  -I/opt/llvm/llvm-3.7.1.src/lib/MC/MCDisassembler \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/ObjCARC \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/InstCombine \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Bitcode/Writer \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/AsmPrinter \
+  -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG \
+  -I/opt/llvm/llvm-3.7.1.src/lib/IR \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Support \
   -I/opt/llvm/llvm-3.7.1.src/include -fno-exceptions -fno-rtti \
   -o opt_bad.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
