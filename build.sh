@@ -1,199 +1,35 @@
 #!/bin/bash -ex
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Support -I/opt/llvm/llvm-3.7.1.src/lib/Support -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-gcc  -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-comment -O3 -DNDEBUG -Ilib/Support -I/opt/llvm/llvm-3.7.1.src/lib/Support -Iinclude -I/opt/llvm/llvm-3.7.1.src/include -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/TableGen -I/opt/llvm/llvm-3.7.1.src/lib/TableGen -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++  -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG \
-/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Iutils/TableGen -I/opt/llvm/llvm-3.7.1.src/utils/TableGen -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/AsmMatcherEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/AsmWriterEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/AsmWriterInst.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CallingConvEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeEmitterGen.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenDAGPatterns.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenInstruction.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenMapTable.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenRegisters.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenSchedule.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CodeGenTarget.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DAGISelEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DAGISelMatcherEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DAGISelMatcherGen.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DAGISelMatcherOpt.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DAGISelMatcher.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DFAPacketizerEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/DisassemblerEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/FastISelEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/FixedLenDecoderEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/InstrInfoEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/IntrinsicEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/OptParserEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/PseudoLoweringEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/RegisterInfoEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/SubtargetEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/TableGen.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/X86DisassemblerTables.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/X86ModRMFilters.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/X86RecognizableInstr.cpp \
-/opt/llvm/llvm-3.7.1.src/utils/TableGen/CTagsEmitter.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/Error.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/Main.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/Record.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/SetTheory.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/StringMatcher.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/TableGenBackend.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/TGLexer.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/TableGen/TGParser.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/APFloat.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/APInt.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/APSInt.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ARMBuildAttrs.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ARMWinEH.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Allocator.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/BlockFrequency.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/BranchProbability.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/circular_raw_ostream.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/COM.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/CommandLine.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Compression.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ConvertUTF.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ConvertUTFWrapper.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/CrashRecoveryContext.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/DataExtractor.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/DataStream.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Debug.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/DeltaAlgorithm.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/DAGDeltaAlgorithm.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Dwarf.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ErrorHandling.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/FileUtilities.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/FileOutputBuffer.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/FoldingSet.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/FormattedStream.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/GraphWriter.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Hashing.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/IntEqClasses.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/IntervalMap.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/IntrusiveRefCntPtr.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/LEB128.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/LineIterator.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Locale.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/LockFileManager.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ManagedStatic.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/MathExtras.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/MemoryBuffer.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/MemoryObject.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/MD5.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Options.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/PluginLoader.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/PrettyStackTrace.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/RandomNumberGenerator.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Regex.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ScaledNumber.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SmallPtrSet.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SmallVector.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SourceMgr.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SpecialCaseList.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Statistic.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StreamingMemoryObject.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StringExtras.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StringMap.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StringPool.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StringSaver.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/StringRef.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SystemUtils.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/TargetParser.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Timer.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ToolOutputFile.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Triple.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Twine.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Unicode.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/YAMLParser.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/YAMLTraits.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/raw_os_ostream.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/raw_ostream.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/regcomp.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/regerror.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/regexec.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/regfree.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/regstrlcpy.c \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Atomic.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/DynamicLibrary.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Errno.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Host.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Memory.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Mutex.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Path.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Process.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Program.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/RWMutex.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/SearchForAddressOfSpecialSymbol.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Signals.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/TargetRegistry.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/ThreadLocal.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Threading.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/TimeValue.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Valgrind.cpp \
-/opt/llvm/llvm-3.7.1.src/lib/Support/Watchdog.cpp \
--o bin/llvm-tblgen.exe  -Wl,--major-image-version,0,--minor-image-version,0 -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-pushd /opt/llvm/build-bad && /usr/bin/cmake -E make_directory /opt/llvm/build-bad/NATIVE && popd
-pushd /opt/llvm/build-bad/NATIVE && /usr/bin/cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=/opt/llvm/NATIVE.cmake /opt/llvm/llvm-3.7.1.src && popd
-pushd /opt/llvm/build-bad/NATIVE && /usr/bin/cmake --build . --target llvm-tblgen --config Release && popd
-pushd /opt/llvm/build-bad/include/llvm/IR && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-intrinsic -I /opt/llvm/llvm-3.7.1.src/include/llvm/IR -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/include/llvm/IR/Intrinsics.td -o /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp && popd
-pushd /opt/llvm/build-bad/include/llvm/IR && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen && popd
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IR -I/opt/llvm/llvm-3.7.1.src/lib/IR -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/IRReader -I/opt/llvm/llvm-3.7.1.src/lib/IRReader -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen/SelectionDAG -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/SelectionDAG -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/CodeGen/AsmPrinter -I/opt/llvm/llvm-3.7.1.src/lib/CodeGen/AsmPrinter -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Bitcode/Reader -I/opt/llvm/llvm-3.7.1.src/lib/Bitcode/Reader -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Bitcode/Writer -I/opt/llvm/llvm-3.7.1.src/lib/Bitcode/Writer -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/Utils -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/Utils -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/Instrumentation -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/Instrumentation -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/InstCombine -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/InstCombine -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/Scalar -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/Scalar -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/IPO -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/IPO -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/Vectorize -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Transforms/ObjCARC -I/opt/llvm/llvm-3.7.1.src/lib/Transforms/ObjCARC -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Analysis/IPA -I/opt/llvm/llvm-3.7.1.src/lib/Analysis/IPA -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Analysis -I/opt/llvm/llvm-3.7.1.src/lib/Analysis -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/MC -I/opt/llvm/llvm-3.7.1.src/lib/MC -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/MC/MCParser -I/opt/llvm/llvm-3.7.1.src/lib/MC/MCParser -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/MC/MCDisassembler -I/opt/llvm/llvm-3.7.1.src/lib/MC/MCDisassembler -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Object -I/opt/llvm/llvm-3.7.1.src/lib/Object -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target -I/opt/llvm/llvm-3.7.1.src/lib/Target -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-register-info -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-disassembler -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-instr-info -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-writer -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-writer -asmwriternum=1 -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-matcher -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-dag-isel -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-fast-isel -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-callingconv -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-subtarget -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc.tmp && popd
-pushd /opt/llvm/build-bad/lib/Target/X86 && /usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc && popd
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86 -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/AsmParser -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/AsmParser -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/Disassembler -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Disassembler -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/InstPrinter -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/InstPrinter -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/MCTargetDesc -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/MCTargetDesc -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/Utils -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Utils -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/AsmParser -I/opt/llvm/llvm-3.7.1.src/lib/AsmParser -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/ProfileData -I/opt/llvm/llvm-3.7.1.src/lib/ProfileData -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT
-#/usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Itools/opt -I/opt/llvm/llvm-3.7.1.src/tools/opt -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT \
-
-
-
+mkdir -p /opt/llvm/build-bad/NATIVE
+pushd /opt/llvm/build-bad/NATIVE
+/usr/bin/cmake -G Ninja -DCMAKE_TOOLCHAIN_FILE=/opt/llvm/NATIVE.cmake /opt/llvm/llvm-3.7.1.src
+/usr/bin/cmake --build . --target llvm-tblgen --config Release
+popd
+pushd /opt/llvm/build-bad/include/llvm/IR
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-intrinsic -I /opt/llvm/llvm-3.7.1.src/include/llvm/IR -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/include/llvm/IR/Intrinsics.td -o /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen.tmp /opt/llvm/build-bad/include/llvm/IR/Intrinsics.gen
+popd
+pushd /opt/llvm/build-bad/lib/Target/X86
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-register-info -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenRegisterInfo.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-disassembler -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenDisassemblerTables.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-instr-info -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenInstrInfo.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-writer -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-writer -asmwriternum=1 -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmWriter1.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-asm-matcher -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenAsmMatcher.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-dag-isel -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenDAGISel.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-fast-isel -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenFastISel.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-callingconv -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenCallingConv.inc
+/opt/llvm/build-bad/NATIVE/bin/llvm-tblgen -gen-subtarget -I /opt/llvm/llvm-3.7.1.src/lib/Target/X86 -I /opt/llvm/llvm-3.7.1.src/lib/Target -I /opt/llvm/llvm-3.7.1.src/include /opt/llvm/llvm-3.7.1.src/lib/Target/X86/X86.td -o /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc.tmp
+/usr/bin/cmake -E copy_if_different /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc.tmp /opt/llvm/build-bad/lib/Target/X86/X86GenSubtargetInfo.inc
+popd
 
 
 /usr/bin/i686-w64-mingw32-g++   -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment -std=gnu++11  -O2 -DNDEBUG -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude -I/opt/llvm/llvm-3.7.1.src/include    -fno-exceptions -fno-rtti -MMD -MT \
