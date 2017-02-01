@@ -15,8 +15,8 @@ RUN mkdir -p /opt/llvm && cd /opt/llvm && \
 RUN cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll /opt/llvm/llvm-3.7.1.src && \
     echo 'set(CMAKE_C_COMPILER clang)' > /opt/llvm/NATIVE.cmake && \
     echo 'set(CMAKE_CXX_COMPILER clang++)' >> /opt/llvm/NATIVE.cmake
-ADD build.sh
-ADD test.sh
-ADD filelist.txt
+ADD build.sh .
 RUN ./build.sh
+ADD filelist.txt .
+ADD test.sh .
 RUN ./test.sh && echo ok
