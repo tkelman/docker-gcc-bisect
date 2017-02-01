@@ -3,9 +3,12 @@
   -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter \
   -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic \
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
-  -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp -fno-ipa-cp \
-  -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
-  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -std=gnu++11 -O2 -DNDEBUG -fno-ipa-cp \
+  $(cat filelist.txt) \
+  -Ilib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 \
+  -Ilib/Target/X86 -Iinclude \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Utils \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/MCTargetDesc \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/InstPrinter \
@@ -45,9 +48,12 @@ define void @test(<4 x i32> %in, <4 x i32> %in2) {
   -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter \
   -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic \
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
-  -std=gnu++11 -O2 -DNDEBUG opt_singlefile.cpp \
-  -Ilib/Target/X86/TargetInfo -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
-  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 -Ilib/Target/X86 -Iinclude \
+  -std=gnu++11 -O2 -DNDEBUG \
+  $(cat filelist.txt) \
+  -Ilib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
+  -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 \
+  -Ilib/Target/X86 -Iinclude \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/Utils \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/MCTargetDesc \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/InstPrinter \
