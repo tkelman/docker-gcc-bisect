@@ -1,4 +1,6 @@
 #!/bin/bash -e
+rm -rf /tmp/.wine*
+rm -f opt_*.exe
 /usr/bin/i686-w64-mingw32-g++ -DGTEST_HAS_RTTI=0 -D__STDC_CONSTANT_MACROS \
   -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -Wall -W -Wno-unused-parameter \
   -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -pedantic \
@@ -33,7 +35,6 @@
   -o opt_good.exe -Wl,--major-image-version,0,--minor-image-version,0 \
   -lpsapi -lshell32 -lole32 -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 \
   -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll .
 [[ "$(timeout 20 wine opt_good.exe -slp-vectorizer \
   -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)" = \
 "; ModuleID = '/opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll'

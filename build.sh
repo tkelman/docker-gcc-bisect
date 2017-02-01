@@ -1,7 +1,5 @@
 #!/bin/bash -ex
-mkdir -p build
-cd build
-cmake .. -DCMAKE_SYSTEM_NAME=Windows \
+cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
   -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host \
   -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc \
   -DCMAKE_CXX_COMPILER=i686-w64-mingw32-g++ \

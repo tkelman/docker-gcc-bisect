@@ -9,18 +9,20 @@ RUN zypper addrepo obs://windows:mingw:win32/openSUSE_42.1 mingw32 && \
     mingw32-cross-gcc-c++ mingw32-libstdc++6 clang cmake ninja creduce patch
 
 # Download sources
-RUN mkdir -p /opt/llvm && cd /opt/llvm && \
+RUN mkdir -p /opt/llvm/build && cd /opt/llvm && \
     curl -L http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz | tar -xJf -
-# Put mingw runtime dlls in place, and prepare toolchain file
-RUN cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll /opt/llvm/llvm-3.7.1.src && \
-    echo 'set(CMAKE_C_COMPILER clang)' > /opt/llvm/NATIVE.cmake && \
-    echo 'set(CMAKE_CXX_COMPILER clang++)' >> /opt/llvm/NATIVE.cmake
+# Patch for C++ compatibility so everything can be built in one g++ invocation
 WORKDIR /opt/llvm/llvm-3.7.1.src
 ADD llvm-cppcompat.patch .
 RUN patch -p1 < llvm-cppcompat.patch
+# Put mingw runtime dlls in place, and prepare toolchain file
+RUN cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll /opt/llvm/build && \
+    echo 'set(CMAKE_C_COMPILER clang)' > /opt/llvm/NATIVE.cmake && \
+    echo 'set(CMAKE_CXX_COMPILER clang++)' >> /opt/llvm/NATIVE.cmake
+WORKDIR /opt/llvm/build
 ADD build.sh .
 RUN ./build.sh
-WORKDIR /opt/llvm/llvm-3.7.1.src/build
 ADD filelist.txt .
 ADD test.sh .
-RUN ./test.sh && echo ok
+RUN delta -verbose -in_place -test=./test.sh filelist.txt && \
+    cat filelist.txt
