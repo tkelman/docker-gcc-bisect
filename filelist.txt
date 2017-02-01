@@ -681,4 +681,3 @@
 /opt/llvm/llvm-3.7.1.src/lib/Support/TimeValue.cpp
 /opt/llvm/llvm-3.7.1.src/lib/Support/Valgrind.cpp
 /opt/llvm/llvm-3.7.1.src/lib/Support/Watchdog.cpp
-/opt/llvm/llvm-3.7.1.src/tools/opt/opt.cpp

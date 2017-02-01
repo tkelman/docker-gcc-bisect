@@ -7,6 +7,7 @@ rm -f opt_*.exe
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
   -std=gnu++11 -O2 -DNDEBUG -fno-ipa-cp \
   $(cat filelist.txt) \
+  /opt/llvm/llvm-3.7.1.src/tools/opt/opt.cpp \
   -Ilib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 \
@@ -51,6 +52,7 @@ define void @test(<4 x i32> %in, <4 x i32> %in2) {
   -Wno-long-long -Wno-maybe-uninitialized -Wnon-virtual-dtor -Wno-comment \
   -std=gnu++11 -O2 -DNDEBUG \
   $(cat filelist.txt) \
+  /opt/llvm/llvm-3.7.1.src/tools/opt/opt.cpp \
   -Ilib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86/TargetInfo \
   -I/opt/llvm/llvm-3.7.1.src/lib/Target/X86 \
