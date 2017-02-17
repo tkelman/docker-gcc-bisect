@@ -8,24 +8,8 @@ RUN zypper -n --gpg-auto-import-keys install git make flex tar curl wine -krb5-m
 RUN zypper -n source-install -d mingw32-cross-gcc-c++
 
 # Download sources
-RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build /opt/gcc6-patched/build && \
-    git clone git://github.com/gcc-mirror/gcc -b gcc-4_9-branch /opt/gccsrc && \
-    cd /opt/gcc49/build && \
-    /opt/gccsrc/configure --prefix=/opt/gcc49/usr \
-    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
-    --disable-multilib --enable-threads=posix \
-    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
-    --with-as=/usr/bin/i686-w64-mingw32-as && \
-    make -j`nproc` && make install && cd .. && rm -rf build && \
-    cd /opt/gccsrc && git checkout gcc-5-branch && \
-    cd /opt/gcc5/build && \
-    /opt/gccsrc/configure --prefix=/opt/gcc5/usr \
-    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
-    --disable-multilib --enable-threads=posix \
-    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
-    --with-as=/usr/bin/i686-w64-mingw32-as && \
-    make -j`nproc` && make install && cd .. && rm -rf build && \
-    cd /opt/gccsrc && git checkout gcc-6-branch && \
+RUN mkdir -p /opt/gcc6/build /opt/gcc6-patched/build && \
+    git clone git://github.com/gcc-mirror/gcc -b gcc-6-branch /opt/gccsrc && \
     cd /opt/gcc6/build && \
     /opt/gccsrc/configure --prefix=/opt/gcc6/usr \
     --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
