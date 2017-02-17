@@ -8,24 +8,40 @@ RUN zypper -n --gpg-auto-import-keys install git make flex tar curl wine -krb5-m
 RUN zypper -n source-install -d mingw32-cross-gcc-c++
 
 # Download sources
-RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build
-RUN git clone git://github.com/gcc-mirror/gcc \
-    -b gcc-4_9-branch /opt/gcc49/src && \
-    cp -r /opt/gcc49/src /opt/gcc5/src && cd /opt/gcc5/src && \
-    git checkout gcc-5-branch && rm -rf /opt/gcc5/src/.git && \
-    cp -r /opt/gcc49/src /opt/gcc6/src && cd /opt/gcc6/src && \
-    git checkout gcc-6-branch && rm -rf /opt/gcc6/src/.git /opt/gcc49/src/.git
-
-RUN df -h
-
-RUN for i in 49 5 6; do cd /opt/gcc$i/build && \
-    /opt/gcc$i/src/configure --prefix=/opt/gcc$i/usr \
+RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build /opt/gcc6-patched/build && \
+    git clone git://github.com/gcc-mirror/gcc -b gcc-4_9-branch /opt/gccsrc && \
+    cd /opt/gcc49/build && \
+    /opt/gccsrc/configure --prefix=/opt/gcc49/usr \
     --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
     --disable-multilib --enable-threads=posix \
     --with-sysroot=/usr/i686-w64-mingw32/sys-root \
-    --with-as=/usr/bin/i686-w64-mingw32-as || break; done
-RUN for i in 49 5 6; do cd /opt/gcc$i/build && make -j`nproc` && \
-    make -j`nproc` check && make install && cd .. && rm -rf build || break; done
+    --with-as=/usr/bin/i686-w64-mingw32-as && \
+    make -j`nproc` && make install && cd .. && rm -rf build && \
+    cd /opt/gccsrc && git checkout gcc-5-branch && \
+    cd /opt/gcc5/build && \
+    /opt/gccsrc/configure --prefix=/opt/gcc5/usr \
+    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
+    --disable-multilib --enable-threads=posix \
+    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
+    --with-as=/usr/bin/i686-w64-mingw32-as && \
+    make -j`nproc` && make install && cd .. && rm -rf build && \
+    cd /opt/gccsrc && git checkout gcc-6-branch && \
+    cd /opt/gcc6/build && \
+    /opt/gccsrc/configure --prefix=/opt/gcc6/usr \
+    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
+    --disable-multilib --enable-threads=posix \
+    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
+    --with-as=/usr/bin/i686-w64-mingw32-as && \
+    make -j`nproc` && make install && cd .. && rm -rf build && \
+    cd /opt/gccsrc && curl https://gist.githubusercontent.com/anonymous/4621fc4aba09827c7bde0e8acb9d2a88/raw/- | git apply -C2 && \
+    cd /opt/gcc6-patched/build && \
+    /opt/gccsrc/configure --prefix=/opt/gcc6-patched/usr \
+    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
+    --disable-multilib --enable-threads=posix \
+    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
+    --with-as=/usr/bin/i686-w64-mingw32-as && \
+    make -j`nproc` && make install && cd .. && rm -rf build && \
+    rm -rf /opt/gccsrc
 
 RUN mkdir -p /opt/llvm && cd /opt/llvm && \
     curl -L http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz | tar -xJf -
@@ -47,4 +63,3 @@ RUN mkdir -p /opt/llvm && cd /opt/llvm && \
 
 
 
-#curl https://gist.githubusercontent.com/anonymous/4621fc4aba09827c7bde0e8acb9d2a88/raw/- | git apply -C2
