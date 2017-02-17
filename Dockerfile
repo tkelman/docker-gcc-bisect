@@ -1,58 +1,50 @@
-FROM opensuse:42.1
+FROM opensuse:42.2
 
-# Install build deps
-RUN zypper addrepo obs://windows:mingw:win32/openSUSE_42.1 mingw32
-RUN zypper addrepo obs://Emulators/openSUSE_Leap_42.1 Emulators
-RUN zypper addrepo obs://devel:tools/openSUSE_Leap_42.1 develtools
+# Install build-deps (source-install is way overkill here, oh well)
+RUN zypper addrepo obs://windows:mingw:win32/openSUSE_42.2 mingw32
+RUN zypper addrepo obs://Emulators/openSUSE_Leap_42.2 Emulators
 # wine depends on samba which depends on krb5 which conflicts with krb5-mini
-RUN zypper -n --gpg-auto-import-keys install git make flex tar curl wine -krb5-mini \
-    mingw32-cross-gcc-c++ mingw32-libstdc++6 clang cmake ninja creduce
+RUN zypper -n --gpg-auto-import-keys install git make flex tar curl wine -krb5-mini dejagnu
+RUN zypper -n source-install -d mingw32-cross-gcc-c++
 
 # Download sources
-RUN mkdir -p /opt/llvm/build-good /opt/llvm/build-bad && cd /opt/llvm && \
+RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build
+RUN git clone git://github.com/gcc-mirror/gcc \
+    -b gcc-4_9-branch /opt/gcc49/src && \
+    cp -r /opt/gcc49/src /opt/gcc5/src && cd /opt/gcc5/src && \
+    git checkout gcc-5-branch && rm -rf /opt/gcc5/src/.git && \
+    cp -r /opt/gcc49/src /opt/gcc6/src && cd /opt/gcc6/src && \
+    git checkout gcc-6-branch && rm -rf /opt/gcc6/src/.git /opt/gcc49/src/.git
+
+RUN df -h
+
+RUN for i in 49 5 6; do cd /opt/gcc$i/build && \
+    /opt/gcc$i/src/configure --prefix=/opt/gcc$i/usr \
+    --target=i686-w64-mingw32 --enable-languages="c,c++,fortran,lto,objc,obj-c++" \
+    --disable-multilib --enable-threads=posix \
+    --with-sysroot=/usr/i686-w64-mingw32/sys-root \
+    --with-as=/usr/bin/i686-w64-mingw32-as || break; done
+RUN for i in 49 5 6; do cd /opt/gcc$i/build && make -j`nproc` && \
+    make -j`nproc` check && make install && cd .. && rm -rf build || break; done
+
+RUN mkdir -p /opt/llvm && cd /opt/llvm && \
     curl -L http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz | tar -xJf -
 
-WORKDIR /opt/llvm/build-good
-RUN rm -rf /opt/llvm/build-good/* && mkdir -p bin && \
-    cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll bin && \
-    echo 'set(CMAKE_C_COMPILER clang)' > NATIVE.cmake && \
-    echo 'set(CMAKE_CXX_COMPILER clang++)' >> NATIVE.cmake
-RUN cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
-    -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host \
-    -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc \
-    -DCMAKE_CXX_COMPILER=i686-w64-mingw32-g++ \
-    -DCROSS_TOOLCHAIN_FLAGS_NATIVE=-DCMAKE_TOOLCHAIN_FILE=$PWD/NATIVE.cmake \
-    -DCMAKE_VERBOSE_MAKEFILE=TRUE -G Ninja -DCMAKE_CXX_FLAGS=-fno-ipa-cp
-RUN ninja -v opt
-RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
-    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
+#export PATH=/opt/gcc/usr/bin:$PATH
 
-WORKDIR /opt/llvm/build-bad
-RUN rm -rf /opt/llvm/build-bad/* && mkdir -p bin && \
-    cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll bin && \
-    echo 'set(CMAKE_C_COMPILER clang)' > NATIVE.cmake && \
-    echo 'set(CMAKE_CXX_COMPILER clang++)' >> NATIVE.cmake
-RUN cmake /opt/llvm/llvm-3.7.1.src -DCMAKE_SYSTEM_NAME=Windows \
-    -DCMAKE_BUILD_TYPE=Release -DLLVM_TARGETS_TO_BUILD=host \
-    -DCMAKE_C_COMPILER=i686-w64-mingw32-gcc \
-    -DCMAKE_CXX_COMPILER=i686-w64-mingw32-g++ \
-    -DCROSS_TOOLCHAIN_FLAGS_NATIVE=-DCMAKE_TOOLCHAIN_FILE=$PWD/NATIVE.cmake \
-    -DCMAKE_VERBOSE_MAKEFILE=TRUE -G Ninja
-RUN ninja -v opt
+#cd /opt/llvm/build
+#rm -rf /opt/llvm/build/*
+#mkdir -p Release+Asserts/bin
+#cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll Release+Asserts/bin
+#cp /opt/gcc/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin
+#/opt/llvm/llvm-3.7.1.src/configure --host=i686-w64-mingw32 \
+#  --enable-optimized --enable-targets=host #> llvm-conf.log 2>&1 || exit 125
+# ONLY_TOOLS=opt to avoid hitting an unrelated gtest macro expansion
+# error that would cause build failures at some points in the history
+#make -j`nproc` ONLY_TOOLS=opt #> llvm-build.log || exit 125
+#wine /opt/llvm/build/Release+Asserts/bin/opt.exe -slp-vectorizer \
+#  -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll || exit 1
 
-RUN wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer \
-    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll > \
-    /opt/llvm/build-good/good-output.txt
 
-WORKDIR /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize
-RUN echo '#!/bin/bash -e' > script.sh && chmod +x script.sh && \
-    echo 'cd /opt/llvm/build-good && ninja opt' >> script.sh && \
-    echo 'cd /opt/llvm/build-bad && ninja opt' >> script.sh && \
-    echo 'cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize' >> script.sh && \
-    echo 'rm -rf /tmp/.wine*' >> script.sh && \
-    echo 'diff /opt/llvm/build-good/good-output.txt <(timeout 20 wine /opt/llvm/build-good/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll)' >> script.sh && \
-    echo '! timeout 20 wine /opt/llvm/build-bad/bin/opt.exe -slp-vectorizer -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll' >> script.sh
-RUN cd /opt/llvm/llvm-3.7.1.src/lib/Transforms/Vectorize && \
-    delta -verbose -in_place -test=./script.sh SLPVectorizer.cpp && \
-    cat SLPVectorizer.cpp
 
+#curl https://gist.githubusercontent.com/anonymous/4621fc4aba09827c7bde0e8acb9d2a88/raw/- | git apply -C2
