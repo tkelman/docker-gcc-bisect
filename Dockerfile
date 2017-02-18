@@ -47,8 +47,8 @@ RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build /opt/gcc6-patched/
 RUN mkdir -p /opt/llvm && cd /opt/llvm && \
     curl -L http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz | tar -xJf -
 
-RUN gccver=49 && \
-    export PATH=/opt/gcc$gccver/usr/bin:$PATH && \
+RUN for gccver in 49 5 6 6-patched; do \
+    (export PATH=/opt/gcc$gccver/usr/bin:$PATH && \
     mkdir -p /opt/llvm/build$gccver && \
     cd /opt/llvm/build$gccver && \
     mkdir -p Release+Asserts/bin && \
@@ -56,6 +56,8 @@ RUN gccver=49 && \
     cp /opt/gcc$gccver/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin && \
     /opt/llvm/llvm-3.7.1.src/configure --host=i686-w64-mingw32 \
     --enable-optimized --enable-targets=host && \
-    make -j`nproc` ONLY_TOOLS=opt && \
-    wine /opt/llvm/build/Release+Asserts/bin/opt.exe -slp-vectorizer \
-    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll
+    make -j`nproc` ONLY_TOOLS=opt); done && echo $PATH
+RUN for gccver in 49 5 6 6-patched; do \
+    echo "gcc $gccver:" && \
+    wine /opt/llvm/build$gccver/Release+Asserts/bin/opt.exe -slp-vectorizer \
+    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll; done
