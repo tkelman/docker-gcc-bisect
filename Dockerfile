@@ -44,20 +44,18 @@ RUN mkdir -p /opt/gcc49/build /opt/gcc5/build /opt/gcc6/build /opt/gcc6-patched/
     make -j`nproc` && make install && cd .. && rm -rf build && \
     rm -rf /opt/gccsrc
 
-RUN mkdir -p /opt/llvm && cd /opt/llvm && \
-    curl -L http://llvm.org/releases/3.7.1/llvm-3.7.1.src.tar.xz | tar -xJf -
+RUN zypper -n install which patch cmake && \
+    git clone git://github.com/JuliaLang/julia /opt/julia -b release-0.5 && \
+    cd /opt/julia && mkdir -p usr/bin usr/tools && \
+    cp /usr/i686-w64-mingw32/sys-root/mingw/bin/lib*.dll usr/bin && \
+    cp /usr/i686-w64-mingw32/sys-root/mingw/bin/lib*.dll usr/tools && \
+    echo 'XC_HOST = i686-w64-mingw32' > Make.user && \
+    echo 'override MARCH = pentium4' >> Make.user
 
-RUN for gccver in 49 5 6 6-patched; do \
-    (export PATH=/opt/gcc$gccver/usr/bin:$PATH && \
-    mkdir -p /opt/llvm/build$gccver && \
-    cd /opt/llvm/build$gccver && \
-    mkdir -p Release+Asserts/bin && \
-    cp /usr/i686-w64-mingw32/sys-root/mingw/bin/*.dll Release+Asserts/bin && \
-    cp /opt/gcc$gccver/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin && \
-    /opt/llvm/llvm-3.7.1.src/configure --host=i686-w64-mingw32 \
-    --enable-optimized --enable-targets=host && \
-    make -j`nproc` ONLY_TOOLS=opt); done && echo $PATH
-RUN for gccver in 49 5 6 6-patched; do \
-    echo "gcc $gccver:" && \
-    wine /opt/llvm/build$gccver/Release+Asserts/bin/opt.exe -slp-vectorizer \
-    -S /opt/llvm/llvm-3.7.1.src/test/Transforms/SLPVectorizer/X86/vector.ll; done
+WORKDIR /opt/julia
+
+RUN export PATH=/opt/gcc6/usr/bin:$PATH && \
+    for i in `seq 5`; do make -j`nproc` \
+    RCFLAGS="-I/usr/i686-w64-mingw32/sys-root/mingw/include -D_WIN32"; done
+
+#    cp /opt/gcc$gccver/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin && \
