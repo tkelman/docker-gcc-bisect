@@ -55,7 +55,7 @@ RUN zypper -n install which patch cmake && \
 WORKDIR /opt/julia
 
 RUN export PATH=/opt/gcc6/usr/bin:$PATH && \
-    for i in `seq 5`; do make -j`nproc` \
+    for i in `seq 5`; do make -j`nproc` -C deps \
     RCFLAGS="-I/usr/i686-w64-mingw32/sys-root/mingw/include -D_WIN32"; done
-
+RUN echo $PATH
 #    cp /opt/gcc$gccver/usr/i686-w64-mingw32/lib/*.dll Release+Asserts/bin && \
