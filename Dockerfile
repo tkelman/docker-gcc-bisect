@@ -9,7 +9,7 @@ RUN zypper -n -q --gpg-auto-import-keys install git make flex tar curl \
     zypper -n -q source-install -d mingw32-cross-gcc-c++
 
 RUN git clone git://github.com/gcc-mirror/gcc --depth=1 -b gcc-6-branch /opt/gccsrc && \
-    cd /opt/gccsrc && rm -rf .git && \
+    cd /opt/gccsrc && git log -1 && rm -rf .git && \
     mkdir -p /opt/gcc6/build && \
     cd /opt/gcc6/build && \
     /opt/gccsrc/configure --prefix=/opt/gcc6/usr \
