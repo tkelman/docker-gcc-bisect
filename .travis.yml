@@ -10,7 +10,6 @@ addons:
 notifications:
   email: false
 script:
-   - travis_wait docker build .
 #  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-#  - mispipe "docker build -t tkelman/docker-gcc-bisect ." bar > build.log || tail -c 2097152 build.log
+  - mispipe "docker build -t tkelman/docker-gcc-bisect ." bar #> build.log || tail -c 2097152 build.log
 #- docker push tkelman/docker-gcc-bisect
