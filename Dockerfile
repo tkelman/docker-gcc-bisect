@@ -17,5 +17,5 @@ RUN git clone git://github.com/gcc-mirror/gcc --depth=1 -b gcc-6-branch /opt/gcc
     --disable-multilib --enable-threads=posix \
     --with-sysroot=/usr/i686-w64-mingw32/sys-root \
     --with-as=/usr/bin/i686-w64-mingw32-as && \
-    make -j`nproc` && make -j`nproc` check && \
+    make -j`nproc` > build.log && make -j`nproc` check && \
     cd .. && rm -rf build && rm -rf /opt/gccsrc
